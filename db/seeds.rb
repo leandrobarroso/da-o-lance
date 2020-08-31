@@ -39,3 +39,47 @@ puts "creating fake products"
 end
 puts "done"
 
+puts "creating auctions"
+30.times do |i|
+  auction = Auction.new(
+    user_id: rand(1..40),
+    time: Faker::Time.between(from: DateTime.now, to: DateTime.now + rand(0..3)),
+    status: 'open'
+    )
+  auction.save!
+end
+puts "done"
+
+puts "creating auction products"
+90.times do |i|
+  auction_product = AuctionProduct.new(
+    auction_id: rand(1..30),
+    product_id: rand(1..40),
+    quantity: rand(1..100)
+    )
+  auction_product.save!
+end
+puts "done"
+
+
+puts "creating bids"
+60.times do |i|
+  bid = Bid.new(
+    auction_id: rand(1..30),
+    seller_id: rand(1..20),
+    total: rand(1.0..500.0),
+    status: 'normal'
+    )
+  bid.save!
+end
+puts "done"
+
+puts "creating orders"
+30.times do |i|
+  order = Order.new(
+    bid_id: rand(1..60),
+    seller_id: rand(1..20)
+    )
+  order.save!
+end
+puts "done"
