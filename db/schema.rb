@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_194542) do
+ActiveRecord::Schema.define(version: 2020_08_31_194011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_194542) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "seller_id", null: false
-    t.bigint "bid_id", null: false
-    t.integer "total"
+    t.bigint "bid_id"
+    t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bid_id"], name: "index_orders_on_bid_id"
@@ -91,7 +91,6 @@ ActiveRecord::Schema.define(version: 2020_08_31_194542) do
   add_foreign_key "auctions", "users"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "sellers"
-  add_foreign_key "orders", "bids"
   add_foreign_key "orders", "sellers"
   add_foreign_key "sellers", "users"
 end
