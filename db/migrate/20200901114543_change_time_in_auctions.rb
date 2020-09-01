@@ -1,7 +1,7 @@
 class ChangeTimeInAuctions < ActiveRecord::Migration[6.0]
   def change
-    change_table :products do |t|
-      t.remove :deadline
+    change_table :auctions do |t|
+      t.rename :time, :deadline
     end
   end
 end

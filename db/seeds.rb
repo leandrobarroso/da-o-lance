@@ -42,7 +42,7 @@ puts "done"
 puts "creating auctions"
 30.times do |i|
   auction = Auction.new(
-    user_id: rand(1..40),
+    user_id: rand(1..20),
     time: Faker::Time.between(from: DateTime.now, to: DateTime.now + rand(0..3)),
     status: 'open'
     )
@@ -71,15 +71,5 @@ puts "creating bids"
     status: 'normal'
     )
   bid.save!
-end
-puts "done"
-
-puts "creating orders"
-30.times do |i|
-  order = Order.new(
-    bid_id: rand(1..60),
-    seller_id: rand(1..20)
-    )
-  order.save!
 end
 puts "done"
