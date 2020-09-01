@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
+  resources :bids, only: [:index, :show]
 
   resources :auctions, only: [:index, :new, :create]
 
