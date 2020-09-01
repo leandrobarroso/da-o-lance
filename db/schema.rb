@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_143206) do
+ActiveRecord::Schema.define(version: 2020_09_01_174824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2020_09_01_143206) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deadline"
     t.index ["user_id"], name: "index_auctions_on_user_id"
+  end
+
+  create_table "bid_products", force: :cascade do |t|
+    t.bigint "bid_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "quantity"
+    t.float "unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bid_id"], name: "index_bid_products_on_bid_id"
+    t.index ["product_id"], name: "index_bid_products_on_product_id"
   end
 
   create_table "bids", force: :cascade do |t|
@@ -79,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_09_01_143206) do
   add_foreign_key "auction_products", "auctions"
   add_foreign_key "auction_products", "products"
   add_foreign_key "auctions", "users"
+  add_foreign_key "bid_products", "bids"
+  add_foreign_key "bid_products", "products"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "sellers"
   add_foreign_key "sellers", "users"
