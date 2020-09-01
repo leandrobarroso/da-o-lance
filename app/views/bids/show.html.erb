@@ -1,2 +1,12 @@
-<h1>Bids#show</h1>
-<p>Find me in app/views/bids/show.html.erb</p>
+
+<h1>Here is the details of this BID</h1>
+
+<div class="container">
+  <% @bid.auction_products.each do |auction_product| %>
+    <%= auction_product.quantity %>
+    <p class=""> img </p>
+    <p class=""><%= auction_product.product.description %> </p>
+    <span class=""><%= @bid.total %></span>
+  <% end %>
+</div>
+

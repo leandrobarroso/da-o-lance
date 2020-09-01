@@ -1,6 +1,6 @@
 class BidsController < ApplicationController
   def index
-    @bids = Bid.all
+    @bids = Bid.where(seller_id: current_user.id)
   end
 
   def show
@@ -53,4 +53,5 @@ class BidsController < ApplicationController
   def bid_params
     params.require(:bid).permit(:total, :status)
   end
+
 end

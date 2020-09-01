@@ -1,6 +1,7 @@
 class Bid < ApplicationRecord
   belongs_to :auction
   belongs_to :seller
+  has_many :auction_products, through: :auction
   has_many :bid_products
 
   accepts_nested_attributes_for :bid_products

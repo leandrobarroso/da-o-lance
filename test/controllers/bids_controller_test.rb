@@ -35,5 +35,4 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
     get bids_destroy_url
     assert_response :success
   end
-
 end
