@@ -1,0 +1,7 @@
+<h1>SHOW DE SELLER <%= @seller.name %></h1>
+
+<ul>
+  <% @auctions.each do |auction| %>
+    <li><%= link_to "#{auction.user.first_name} | #{auction.deadline} | #{auction.status}", auction_path(auction) %></li>
+  <% end %>
+</ul>
