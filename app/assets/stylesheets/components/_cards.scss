@@ -1,0 +1,76 @@
+.show-bid-card {
+  position: absolute;
+  width: 340px;
+  height: 64px;
+  left: 11px;
+  top: 198px;
+
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+}
+
+.show-bid-card-quant {
+  position: absolute;
+  width: 7px;
+  height: 24px;
+  left: 32px;
+  top: 218px;
+
+  font-family: Acme;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+
+  color: #000000;
+}
+
+.show-bid-card-photo {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  left: 49px;
+  top: 205px;
+
+  background-color: lightgrey;
+}
+
+.show-bid-card-desc {
+  position: absolute;
+  width: 153px;
+  height: 48px;
+  left: 112px;
+  top: 202px;
+
+  font-family: Acme;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 24px;
+  /* or 240% */
+
+
+  color: #000000;
+}
+
+.show-bid-card-price {
+  position: absolute;
+  width: 83px;
+  height: 21px;
+  left: 263px;
+  top: 218px;
+
+  font-family: Acme;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  /* or 133% */
+
+
+  color: #000000;
+}
+
