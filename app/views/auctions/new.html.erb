@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for @auction do |f| %>
+    <%= f.input :status %>
+    <%= f.input :deadline %>
+    <%= f.input :product_ids, :collection => @products.map(&:description) %>
+    <%= f.simple_fields_for :auction_product do |b| %>
+      <%= b.input :quantity, collection: (1..100) %>
+    <%end %>
+    <%= f.submit "Crie seu lance" %>
+  <% end %>
+
+</div>
+
+
