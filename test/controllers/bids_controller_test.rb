@@ -11,4 +11,28 @@ class BidsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get new" do
+    get bids_new_url
+    assert_response :success
+  end
+
+  test "should get create" do
+    get bids_create_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get bids_edit_url
+    assert_response :success
+  end
+
+  test "should get update" do
+    get bids_update_url
+    assert_response :success
+  end
+
+  test "should get destroy" do
+    get bids_destroy_url
+    assert_response :success
+  end
 end

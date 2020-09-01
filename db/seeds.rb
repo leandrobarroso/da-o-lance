@@ -43,7 +43,7 @@ puts "creating auctions"
 30.times do |i|
   auction = Auction.new(
     user_id: rand(1..20),
-    time: Faker::Time.between(from: DateTime.now, to: DateTime.now + rand(0..3)),
+    deadline: DateTime.now,
     status: 'open'
     )
   auction.save!

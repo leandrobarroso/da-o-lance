@@ -1,0 +1,7 @@
+<h1>Create seller</h1>
+<%= simple_form_for @seller do |f|%>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>

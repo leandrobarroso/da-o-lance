@@ -1,0 +1,18 @@
+<h1>Bids#new</h1>
+
+<%= simple_form_for [@auction, @seller, @bid] do |f| %>
+  <ul>
+    <%= @auction.auction_products.each do |item| %>
+      <li>
+        <%= "#{item.product.category} | #{item.product.description} | #{item.quantity}" %>
+      </li>
+      <%= simple_form_for @bid_product do |f| %>
+        <%= f.input :product, disabled: true, input_html: { value: item.product.description } %>
+        <%= f.input :quantity, disabled: true, input_html: { value: item.quantity } %>
+        <%= f.input :unit_price %>
+      <% end %>
+    <% end %>
+  </ul>
+  <%= f.input :total, disabled: true, id: 'bid-total' %>
+  <%= f.submit %>
+<% end %>
