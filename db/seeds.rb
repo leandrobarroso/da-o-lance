@@ -73,13 +73,3 @@ puts "creating bids"
   bid.save!
 end
 puts "done"
-
-puts "creating orders"
-30.times do |i|
-  order = Order.new(
-    bid_id: rand(1..60),
-    seller_id: rand(1..20)
-    )
-  order.save!
-end
-puts "done"

@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>All auctions </h1>
+
+  <% @auctions.each do |auction| %>
+    <h5>
+      <ul>
+        <%= auction.user_id %>
+        <%= auction.status %>
+      </ul>
+    </h5>
+  <% end %>
+</div>
