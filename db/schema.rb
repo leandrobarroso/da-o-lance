@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 2020_09_01_174824) do
     t.index ["seller_id"], name: "index_bids_on_seller_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "seller_id", null: false
+    t.bigint "bid_id"
+    t.float "total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bid_id"], name: "index_orders_on_bid_id"
+    t.index ["seller_id"], name: "index_orders_on_seller_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "description"
     t.string "category"
@@ -94,5 +104,6 @@ ActiveRecord::Schema.define(version: 2020_09_01_174824) do
   add_foreign_key "bid_products", "products"
   add_foreign_key "bids", "auctions"
   add_foreign_key "bids", "sellers"
+  add_foreign_key "orders", "sellers"
   add_foreign_key "sellers", "users"
 end
