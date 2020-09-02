@@ -3,14 +3,12 @@
   <%= simple_form_for @auction do |f| %>
     <%= f.input :status %>
     <%= f.input :deadline %>
-    <%#= f.select :product_ids, @products.map{ |l| [l.description, l.id, {:description => l.description}] } %>
-    <%= f.input :products, collection: @products.map { |product| [product.description, product.id, {data: {description: product.description}}] } %>
     <%= f.simple_fields_for :auction_product do |b| %>
+      <%= b.input :product, collection: @products.map { |product| [product.description, product.id, {data: {description: product.description}}] } %>
       <%= b.input :quantity, collection: (1..100) %>
     <% end %>
-    <%= f.submit "Crie seu lance" %>
+    <%= f.submit "Crie sua lista" %>
   <% end %>
-
 </div>
 
 

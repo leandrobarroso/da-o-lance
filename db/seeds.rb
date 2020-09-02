@@ -55,7 +55,7 @@ puts "creating auction products"
   auction_product = AuctionProduct.new(
     auction_id: rand(1..30),
     product_id: rand(1..40),
-    quantity: rand(1..100)
+    quantity: rand(1..20)
     )
   auction_product.save!
 end
@@ -63,13 +63,19 @@ puts "done"
 
 
 puts "creating bids"
-60.times do |i|
-  bid = Bid.new(
-    auction_id: rand(1..30),
-    seller_id: rand(1..20),
+Seller.all.each do |seller|
+  auctions_indexes = (1..Auction.all.count).to_a
+  5.times do
+    auction_id = auctions_indexes.sample
+    bid = Bid.new(
+    auction_id: auction_id,
+    seller_id: seller.id,
     total: rand(1.0..500.0),
     status: 'normal'
     )
-  bid.save!
+    bid.save!
+    auctions_indexes.delete(auction_id)
+  end
 end
+
 puts "done"

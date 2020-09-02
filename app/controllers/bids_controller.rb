@@ -10,27 +10,16 @@ class BidsController < ApplicationController
   def new
     @auction = Auction.find(params[:auction_id])
     @seller = Seller.find(params[:seller_id])
-    @bid = Bid.create(auction: @auction, seller: @seller)
-    @auction.auction_products.each do |auct_product|
-      BidProduct.create(bid: @bid, product: auct_product.product, quantity: auct_product.quantity)
+    if @seller.auctions.include? @auction
+      redirect_to edit_bid_url(@seller.bids.find_by(auction: @auction))
+    else
+      @bid = Bid.create(auction: @auction, seller: @seller)
+      @auction.auction_products.each do |auct_product|
+        BidProduct.create(bid: @bid, product: auct_product.product, quantity: auct_product.quantity)
+      end
+      redirect_to edit_bid_url(@bid)
     end
-    redirect_to edit_bid_url(@bid)
   end
-
-  # def create
-  #   @bid = Bid.new(bid_params)
-  #   @bid.status = "SEM STATUS AINDA"
-  #   @seller = current_user.seller
-  #   @auction = Auction.find(params[:auction_id])
-  #   @bid.seller = @seller
-  #   @bid.auction = @auction
-
-  #   if @bid.save
-  #     redirect_to seller_url(@seller)
-  #   else
-  #     render :new
-  #   end
-  # end
 
   def edit
     @bid = Bid.find(params[:id])
@@ -39,7 +28,9 @@ class BidsController < ApplicationController
   def update
     @bid = Bid.find(params[:id])
     if @bid.update(bid_params)
-      redirect_to @seller, notice: 'bid was successfully updated.'
+      @bid.total = @bid.total_price
+      @bid.save
+      redirect_to @bid.seller, notice: 'bid was successfully updated.'
     else
       render :new
     end
@@ -51,7 +42,6 @@ class BidsController < ApplicationController
   private
 
   def bid_params
-    params.require(:bid).permit(:total, :status)
+    params.require(:bid).permit!
   end
-
 end

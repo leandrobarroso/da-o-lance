@@ -13,9 +13,7 @@ class AuctionsController < ApplicationController
     @auction = Auction.new(auction_params)
     @auction.user = current_user
     @auction.deadline = DateTime.now
-    #@seleted_products = params[:products]
-    @product = Product.find(params[:products])
-
+    @product = Product.find(params[:auction][:products])
 
     unless @product.nil?
       @auction.save
@@ -31,6 +29,6 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:status, :deadline, :product_id, :quantity)
+    params.require(:auction).permit!
   end
 end

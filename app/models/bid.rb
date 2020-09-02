@@ -3,6 +3,7 @@ class Bid < ApplicationRecord
   belongs_to :seller
   has_many :auction_products, through: :auction
   has_many :bid_products
+  validates :seller, uniqueness: { scope: :auction, message: "only one bid per seller" }
 
   accepts_nested_attributes_for :bid_products
 

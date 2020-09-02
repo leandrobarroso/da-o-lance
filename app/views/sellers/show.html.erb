@@ -3,13 +3,13 @@
 <h2>Leilões</h2>
 <ul>
   <% @auctions.each do |auction| %>
-    <li><%= link_to "#{auction.user.first_name} | #{auction.deadline} | #{auction.status}", new_auction_seller_bid_path(auction, @seller) %></li>
+    <li><%= link_to "#{auction.id} == #{auction.user.first_name} | #{auction.deadline} | #{auction.status}", new_auction_seller_bid_path(auction, @seller) %></li>
   <% end %>
 </ul>
 
 <h2>MEUS BIDS</h2>
 <ul>
   <% @seller.bids.each do |bid| %>
-    <li><%= link_to "#{bid.id} | #{bid.total} | #{bid.auction.user.first_name} | #{bid.auction.status}", bid_path(bid) %></li>
+    <li><%= link_to "#{bid.id} | #{bid.total} | #{bid.auction.user.first_name} | #{bid.auction.status} | #{bid.auction.id}", bid_path(bid) %></li>
   <% end %>
 </ul>

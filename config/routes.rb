@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :bids
     end
   end
-  resources :sellers, only: :show
-  resources :bids, only: [:show, :edit]
+  resources :sellers, only: [:new, :create, :show]
+  resources :bids, only: [:show, :edit, :update]
   resources :bid_products
 end
