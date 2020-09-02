@@ -1,16 +1,30 @@
 <div class="container">
   <h1>Nova Lista</h1>
   <%= simple_form_for @auction do |f| %>
+    <%= f.error_notification %>
     <%= f.input :status %>
     <%= f.input :deadline %>
-    <%#= f.select :product_ids, @products.map{ |l| [l.description, l.id, {:description => l.description}] } %>
-    <%= f.input :products, collection: @products.map { |product| [product.description, product.id, {data: {description: product.description}}] } %>
-    <%= f.simple_fields_for :auction_product do |b| %>
-      <%= b.input :quantity, collection: (1..100) %>
-    <% end %>
-    <%= f.submit "Crie seu lance" %>
+
+    <h3>Products</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody class="products">
+        <%= f.simple_fields_for :auction_products do |auction_product| %>
+          <%= render 'auction_product_fields', :f => auction_product  %>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="form-actions">
+      <%= f.button :submit %>
+      <%= link_to_add_association 'Add product', f, :auction_products, class: 'btn btn-primary',
+      data: { association_insertion_node: '.products', association_insertion_method: :append } %>
+    </div>
   <% end %>
-
 </div>
-
-
