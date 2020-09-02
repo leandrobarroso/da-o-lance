@@ -22,9 +22,10 @@
       </tbody>
     </table>
     <div class="form-actions">
-      <%= f.button :submit %>
+
       <%= link_to_add_association 'Add product', f, :auction_products, class: 'btn btn-primary',
       data: { association_insertion_node: '.products', association_insertion_method: :append } %>
+      <%= f.button :submit %>
     </div>
   <% end %>
 </div>

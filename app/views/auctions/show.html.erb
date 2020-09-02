@@ -1,1 +1,9 @@
-show.html.erb
+<div class="container">
+  <h1>Detalhes da Lista</h1>
+  <% @auction.auction_products.each do |auction_product| %>
+      <p><%= auction_product.product.description %></p>
+
+  <% end %>
+  <%= link_to "Voltar", auctions_path, class: "btn btn-gradient" %>
+</div>
+
