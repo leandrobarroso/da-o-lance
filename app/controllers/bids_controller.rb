@@ -1,6 +1,10 @@
 class BidsController < ApplicationController
   def index
-    @bids = Bid.where(seller_id: current_user.id)
+    @auctions = Auction.where(user: current_user)
+    @bids = @auctions.map do |auction|
+      Bid.where(auction: auction)
+    end.flatten
+    # @bids = Bid.where(seller_id: current_user.id)
   end
 
   def show
