@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
   def index
-    @auctions = Auction.all
+    @auctions = Auction.where(user_id: current_user.id)
   end
 
   def new
@@ -14,10 +14,14 @@ class AuctionsController < ApplicationController
     @auction.user = current_user
 
     if @auction.save
-      redirect_to root_path
+      redirect_to auctions_path
     else
       render :new
     end
+  end
+
+  def show
+    @auction = Auction.find(params[:id])
   end
 
   private

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :bids, only: [:index, :show]
 
-  resources :auctions, only: [:index, :new, :create]
+  resources :auctions, only: [:index, :new, :create, :show]
 
 
 
