@@ -59,13 +59,11 @@ ActiveRecord::Schema.define(version: 2020_09_02_200003) do
   end
 
   create_table "orders", force: :cascade do |t|
-
     t.bigint "bid_id", null: false
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bid_id"], name: "index_orders_on_bid_id"
-
   end
 
   create_table "products", force: :cascade do |t|
