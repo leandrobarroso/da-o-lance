@@ -12,15 +12,9 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(auction_params)
     @auction.user = current_user
-    @auction.deadline = DateTime.now
-    @product = Product.find(params[:auction][:products])
 
-    unless @product.nil?
-      @auction.save
-
-      AuctionProduct.create(auction: @auction, product: @product, quantity: product[:quantity])
-
-      redirect root_path
+    if @auction.save
+      redirect_to root_path
     else
       render :new
     end
@@ -29,6 +23,8 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit!
+    params
+      .require(:auction)
+      .permit(:deadline, :status, auction_products_attributes: AuctionProduct.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end
