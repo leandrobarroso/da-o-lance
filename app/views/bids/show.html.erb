@@ -1,12 +1,27 @@
-
-<h1>Here is the details of this BID</h1>
-
 <div class="container">
-  <% @bid.auction_products.each do |auction_product| %>
-    <%= auction_product.quantity %>
-    <p class=""> img </p>
-    <p class=""><%= auction_product.product.description %> </p>
-    <span class=""><%= @bid.total %></span>
-  <% end %>
-</div>
+  <h1>Here is the details of this BID</h1>
 
+  <h3>Total price: $<%= @bid.total %> </h3>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Quantity</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+      <th scope="col">Items Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bid.bid_products.each do |bid_product| %>
+      <tr>
+        <td><%= bid_product.quantity %></td>
+        <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
+        <td><%= bid_product.product.description %></td>
+        <td><%= bid_product.unit_price * bid_product.quantity %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
