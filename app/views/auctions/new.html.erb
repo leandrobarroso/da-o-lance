@@ -2,6 +2,7 @@
   <h1>Nova Lista</h1>
   <%= simple_form_for @auction do |f| %>
     <%= f.error_notification %>
+    <%= f.input :list_name %>
     <%= f.input :status %>
     <%= f.input :deadline %>
 

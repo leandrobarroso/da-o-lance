@@ -1,9 +1,27 @@
 <div class="container">
-  <h1>Detalhes da Lista</h1>
-  <% @auction.auction_products.each do |auction_product| %>
-      <p><%= auction_product.product.description %></p>
+  <h3>Here is the details of this auction</h3>
 
-  <% end %>
+  <h6>Deadline: <%= @auction.deadline %> </h6>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Quantity</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @auction.auction_products.each do |auction_product| %>
+      <tr>
+        <td><%= auction_product.quantity %></td>
+        <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
+        <td><%= auction_product.product.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
   <%= link_to "Voltar", auctions_path, class: "btn btn-gradient" %>
+  <%= link_to "Editar", auctions_path, class: "btn btn-danger" %>
 </div>
 
