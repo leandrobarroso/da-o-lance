@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Dashboard - <%= @seller.name %></h1>
   <div class="row">
+    <h2>My Auctions</h2>
     <div class="col">
-      <h2>My Auctions</h2>
       <h4>Open</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
@@ -22,7 +22,7 @@
           <li class="list-group-item">
             <div class="row">
               <span class="col-1"><%= "#{auction.id}" %></span>
-              <span class="col-4"> Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
+              <span class="col-4">Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
               <span class="col-6">Finished: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
               <%= link_to '<i class="fas fa-search"></i>'.html_safe, auction_path(auction), class: 'col-1' %>
             </div>

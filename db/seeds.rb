@@ -44,7 +44,8 @@ puts "creating auctions"
   auction = Auction.new(
     user_id: rand(1..20),
     deadline: DateTime.now,
-    status: 'open'
+    delivery_time: DateTime.now,
+    list_name: Faker::Marketing.buzzwords
     )
   auction.save!
 end

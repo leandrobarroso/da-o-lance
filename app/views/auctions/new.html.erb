@@ -3,9 +3,9 @@
   <%= simple_form_for @auction do |f| %>
     <%= f.error_notification %>
     <%= f.input :list_name %>
-    <div class="d-flex justify-content-between">
-      <%= f.input :deadline, as: :string, input_html: {class: "datetimepicker"} %>
-      <%= f.input :delivery_time, as: :string, input_html: {class: "datetimepicker"} %>
+    <div class="d-flex justify-content-between datetimepicker">
+      <%= f.input :deadline, as: :string, input_html: {id: "deadline_input"} %>
+      <%= f.input :delivery_time, as: :string, input_html: {id: "delivery_time_input"} %>
     </div>
     <%= f.input :sub_itens %>
 
