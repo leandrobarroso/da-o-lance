@@ -1,22 +1,22 @@
 <div class="container">
-  <h3>Detalhes da lista</h3>
+  <h3><%= @auction.list_name %></h3>
 
-  <h6>Deadline: <%= @auction.deadline %> </h6>
+  <p>Finalizado em: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
 
   <h4>Produtos</h4>
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Quantity</th>
-      <th scope="col">Image</th>
-      <th scope="col">Description</th>
+      <th scope="col">Quant</th>
+      <th scope="col"></th>
+      <th scope="col">Descrição</th>
     </tr>
   </thead>
   <tbody>
     <% @auction.auction_products.each do |auction_product| %>
       <tr>
         <td><%= auction_product.quantity %></td>
-        <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
+        <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %></td>
         <td><%= auction_product.product.description %></td>
       </tr>
     <% end %>
@@ -36,7 +36,7 @@
     <% @auction.bids.each do |bid| %>
       <tr>
         <td><%= bid.seller.name %></td>
-        <td><%= bid.total %></td>
+        <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
         <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
       </tr>
     <% end %>

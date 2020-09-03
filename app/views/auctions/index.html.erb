@@ -12,12 +12,18 @@
       <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
         <ul class="list-group">
           <li class="list-group-item">
-            <div class="d-flex justify-content-between">
-              <h4><%= link_to "#{auction.list_name}", auction_path(auction)%></h4>
-              <span>Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></spanp>
+            <div class="row align-items-center">
+              <div class="col">
+                <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+              </div>
+              <div class="col">
+                <span>Lances: <%= auction.bids.count %></span>
+              </div>
+              <div class="col-12 col-sm-4">
+                <span>Tempo restante: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+              </div>
             </div>
           </li>
-
         </ul>
       <% end %>
     </div>
@@ -26,9 +32,16 @@
       <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>
         <ul class="list-group">
           <li class="list-group-item">
-            <div class="d-flex justify-content-between">
-              <h4><%= link_to "#{auction.list_name}", auction_path(auction)%></h4>
-              <span>Finished: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
+            <div class="row align-items-center">
+              <div class="col">
+                <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+              </div>
+              <div class="col">
+                <span>Lances: <%= auction.bids.count %></span>
+              </div>
+              <div class="col-12 col-sm-4">
+                <span>Finalizado em: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+              </div>
             </div>
           </li>
         </ul>

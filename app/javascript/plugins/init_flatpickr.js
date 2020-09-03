@@ -7,11 +7,13 @@ const initFlatPickr = () => {
       enableTime: true,
       altInput: true,
       minDate: "today",
+      disableMobile: "true"
     });
     flatpickr("#delivery_time_input", {
       enableTime: true,
       altInput: true,
       minDate: "today",
+      disableMobile: "true"
     });
   }
 }
