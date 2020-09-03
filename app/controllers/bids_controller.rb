@@ -13,7 +13,7 @@ class BidsController < ApplicationController
 
   def new
     @auction = Auction.find(params[:auction_id])
-    @seller = Seller.find(params[:seller_id])
+    @seller = current_user.seller
     if @seller.auctions.include? @auction
       redirect_to edit_bid_url(@seller.bids.find_by(auction: @auction))
     else
@@ -36,11 +36,8 @@ class BidsController < ApplicationController
       @bid.save
       redirect_to @bid.seller, notice: 'bid was successfully updated.'
     else
-      render :new
+      render :edit
     end
-  end
-
-  def destroy
   end
 
   private
