@@ -10,6 +10,7 @@ class AuctionsController < ApplicationController
   end
 
   def create
+    @products = Product.all
     @auction = Auction.new(auction_params)
     @auction.user = current_user
 
@@ -22,7 +23,6 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
-
   end
 
   private
