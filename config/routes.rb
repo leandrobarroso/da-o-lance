@@ -8,9 +8,14 @@ Rails.application.routes.draw do
 
   resources :auctions, only: [:index, :new, :create, :show] do
     resources :bids, only: [:new]
+
+  resources :orders, only: [:index, :show, :create] do
+    resources :payments, only: :new
   end
 
   resources :orders, only: [:index, :show]
 
   get '/user' => "sellers#show", :as => :user_root
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
