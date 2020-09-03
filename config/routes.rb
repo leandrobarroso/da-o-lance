@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :sellers, only: [:new, :create, :show]
   resources :bids, only: [:show, :edit, :update]
   resources :bid_products
+
+  get '/user' => "sellers#show", :as => :user_root
 end

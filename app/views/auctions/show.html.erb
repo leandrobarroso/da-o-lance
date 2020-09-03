@@ -1,8 +1,9 @@
 <div class="container">
-  <h3>Here is the details of this auction</h3>
+  <h3>Detalhes da lista</h3>
 
   <h6>Deadline: <%= @auction.deadline %> </h6>
 
+  <h4>Produtos</h4>
   <table class="table">
     <thead>
     <tr>
@@ -21,20 +22,22 @@
     <% end %>
   </tbody>
   </table>
-   <table class="table">
+
+  <h4>Lances</h4>
+  <table class="table">
     <thead>
     <tr>
-      <th scope="col">Seller</th>
-      <th scope="col">Link</th>
-      <th scope="col">Total Price</th>
+      <th scope="col">Vendedor</th>
+      <th scope="col">Total</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @auction.bids.each do |auction_bid| %>
+    <% @auction.bids.each do |bid| %>
       <tr>
-        <td><%= auction_bid.seller.name %></td>
-        <td><%= link_to "Details", bids_path(auction_bid) %></td>
-        <td><%= auction_bid.total %></td>
+        <td><%= bid.seller.name %></td>
+        <td><%= bid.total %></td>
+        <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
       </tr>
     <% end %>
   </tbody>
