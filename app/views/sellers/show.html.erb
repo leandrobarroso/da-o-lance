@@ -40,7 +40,7 @@
             <span class="col-1"><%= "#{bid.id}" %></span>
             <span class="col-4"> Auction: <%= "#{bid.auction.id}" %></span>
             <span class="col-6"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></span>
-            <%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %>
+            <%= link_to '<i class="fas fa-search"></i>'.html_safe, edit_bid_path(bid), class: 'col-1' %>
           </div>
           </li>
         <% end %>

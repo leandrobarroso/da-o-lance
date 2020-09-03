@@ -19,10 +19,14 @@
         <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
         <td><%= bid_product.product.description %></td>
         <td><%= bid_product.unit_price * bid_product.quantity %> </td>
-        <p>Amount: <%= humanized_money_with_symbol(@bid.price) %></p>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <% if @bid.seller.user == current_user %>
+    <%= link_to "Voltar", seller_path(@bid), class: 'btn btn-primary' %>
+  <% else %>
+    <%= link_to "Voltar", auctions_path, class: 'btn btn-primary' %>
+  <% end %>
 
 </div>
