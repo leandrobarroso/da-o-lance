@@ -25,4 +25,9 @@
     </tbody>
   </table>
 
+  <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'bid_id', @bid.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+
 </div>

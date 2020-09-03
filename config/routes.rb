@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :auctions, only: [:index, :new, :create, :show]
 
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :create]
 
   resources :auctions do
     resources :sellers, except: :index do
@@ -19,3 +19,4 @@ Rails.application.routes.draw do
 
   get '/user' => "sellers#show", :as => :user_root
 end
+

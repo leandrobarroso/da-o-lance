@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_one :seller
   has_many :auctions
+  has_many :orders
   has_one_attached :photo
 end
