@@ -23,12 +23,15 @@ require("channels")
 // External imports
 import "bootstrap";
 import "cocoon";
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initFlatPickr } from "../plugins/init_flatpickr"
 import { initComingSoon } from './init_coming_soon';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initComingSoon();
+  initFlatPickr();
 });
