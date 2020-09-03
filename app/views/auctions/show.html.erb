@@ -21,6 +21,24 @@
     <% end %>
   </tbody>
   </table>
+   <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Seller</th>
+      <th scope="col">Link</th>
+      <th scope="col">Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @auction.bids.each do |auction_bid| %>
+      <tr>
+        <td><%= auction_bid.seller.name %></td>
+        <td><%= link_to "Details", bids_path(auction_bid) %></td>
+        <td><%= auction_bid.total_price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
   <%= link_to "Voltar", auctions_path, class: "btn btn-gradient" %>
   <%= link_to "Editar", auctions_path, class: "btn btn-danger" %>
 </div>

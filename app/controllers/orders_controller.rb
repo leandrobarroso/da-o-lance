@@ -1,13 +1,11 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!
 
-  def new
-    @order = Order.new
+  def index
+    @orders = Order.all
   end
 
-  def create
-    @auction = Auction.find(params[:auction_id])
-    @order = Order.find(params[:order_id])
-
+  def show
+    @order = Order.find(params[:id])
   end
-
 end

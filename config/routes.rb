@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :auctions, only: [:index, :new, :create, :show]
 
-  resources :orders, only: [:new]
+  resources :orders, only: [:index, :show]
 
   resources :auctions do
     resources :sellers, except: :index do
