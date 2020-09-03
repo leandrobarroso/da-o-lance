@@ -3,47 +3,42 @@
 <%= simple_form_for [@bid] do |f| %>
 
   <div class="row border my-1">
-      <div class="col">
+      <div class="col-7 text-center">
+        Produto
+      </div>
+      <div class="col-1 text-center">
         Quantidade
       </div>
-      <div class="col">
-        Produto
-      </div>
-      <div class="col">
-        Produto
-      </div>
-      <div class="col">
+      <div class="col-2 text-center">
         Preço Unit.
       </div>
-      <div class="col">
+      <div class="col-2 text-center">
         Total
       </div>
     </div>
   <%= f.simple_fields_for :bid_products do |ff|%>
 
   <div class="row bg-white border">
-
     <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
-
-    <div class="col">
-      <%= ff.input :quantity%>
+    <div class="col-7 d-flex justify-content-start">
+      <%= "product .photo"  %>
+      <span><%= product.description  %></span>
     </div>
-    <div class="col">
-    <%= "product .photo"  %>
+    <div class="col-1 text-center">
+      <span><%= @bid.bid_products[ff.index].quantity %></span>
     </div>
-    <div class="col">
-    <%= product.description  %>
+    <div class="col-2">
+    <%= ff.input :unit_price, label: false, placeholder: '0.00', as: :string %>
     </div>
-    <div class="col">
-    <%= ff.input :unit_price %>
-    </div>
-    <div class="col">
+    <div class="col-2">
     <%= "total prices" %>
     </div>
   </div>
   <% end %>
 
-  <%= f.input :total, disabled: true, id: 'bid-total' %>
+
+  <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string %>
+
   <%= f.submit %>
 <% end %>
 </div>
