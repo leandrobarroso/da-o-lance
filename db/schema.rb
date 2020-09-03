@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_175100) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "checkout_session_id"
     t.integer "quantity"
+    t.integer "amount_cents", default: 0, null: false
     t.index ["bid_id"], name: "index_orders_on_bid_id"
   end
 

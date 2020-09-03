@@ -8,7 +8,6 @@
         <h5 class="card-title">Store: <%= bid.seller.name %></h5>
         <h6 class="card-subtitle mb-2 text-muted"> <%= bid.total%></h6>
         <p class="card-text">Address: <%= bid.seller.address %> </p>
-        <p>Amount: <%= humanized_money_with_symbol(bid.price) %></p>
         <%= link_to "Details", bid_path(bid), class: 'btn btn-primary' %>
       </div>
     </div>

@@ -19,7 +19,6 @@
         <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
         <td><%= bid_product.product.description %></td>
         <td><%= bid_product.unit_price * bid_product.quantity %> </td>
-        <p>Amount: <%= humanized_money_with_symbol(@bid.price) %></p>
       </tr>
     <% end %>
     </tbody>
