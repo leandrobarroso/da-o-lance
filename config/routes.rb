@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   resources :bid_products
 
   get '/user' => "sellers#show", :as => :user_root
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
 

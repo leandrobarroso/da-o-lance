@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       line_items: [{
       name: bid.auction.list_name,
 
-      amount: bid.total,
+      amount: bid.total * 100,
       currency: 'brl',
       quantity: 1
     }],
@@ -27,6 +27,6 @@ class OrdersController < ApplicationController
   )
 
     order.update(checkout_session_id: session.id)
-    redirect_to order_path(order)
+    redirect_to new_order_payment_path(order)
   end
 end
