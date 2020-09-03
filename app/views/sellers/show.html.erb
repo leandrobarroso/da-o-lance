@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Dashboard - <%= @seller.name %></h1>
   <div class="row">
-    <h2>My Auctions</h2>
     <div class="col">
-      <h4>Open</h4>
+      <h2>Meus leilões</h2>
+      <h4>Abertos</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
           <li class="list-group-item">
@@ -16,7 +16,7 @@
           </li>
         <% end %>
       </ul>
-      <h4>Finished</h4>
+      <h4>Encerrados</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>
           <li class="list-group-item">
@@ -31,8 +31,8 @@
       </ul>
     </div>
     <div class="col">
-      <h2>My Bids</h2>
-      <h4>Open</h4>
+      <h2>Meus lances</h2>
+      <h4>Abertos</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>
           <li class="list-group-item">
@@ -45,7 +45,7 @@
           </li>
         <% end %>
       </ul>
-      <h4>Won</h4>
+      <h4>Vencedores</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status }.each do |bid| %>
           <li class="list-group-item">
@@ -58,7 +58,7 @@
           </li>
         <% end %>
       </ul>
-      <h4>Lost</h4>
+      <h4>Perdedores</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status == false }.each do |bid| %>
           <li class="list-group-item">
