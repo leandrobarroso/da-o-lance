@@ -1,12 +1,10 @@
 <div class="container">
-  <h1>Todas as listas </h1>
+  <h3>Todas as listas </h3>
 
   <% @auctions.map do |auction| %>
-    <h5>
-      <ul>
-        <li><%= link_to "#{auction.user_id}", auction_path(auction)%></li>
-        <li><%= auction.status %></li>
-      </ul>
-    </h5>
+    <ul>
+      <h4><li><%= link_to "#{auction.list_name}", auction_path(auction)%></li></h4>
+      <p>Deadline: <%= auction.deadline %></p>
+    </ul>
   <% end %>
 </div>
