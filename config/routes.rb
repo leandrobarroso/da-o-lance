@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :auctions, only: [:index, :new, :create, :show] do
     resources :bids, only: [:new]
+  end
 
   resources :orders, only: [:index, :show, :create] do
     resources :payments, only: :new
