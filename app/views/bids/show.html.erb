@@ -1,28 +1,32 @@
 <div class="container">
-  <h1>Here is the details of this BID</h1>
-
-  <h3>Total price: $<%= @bid.total %> </h3>
+  <div class="m-2 p-0 d-flex justify-content-between align-items-center">
+    <h2><%= @bid.seller.name %></h2>
+    <span class="h4 text-center">Total: <%= number_to_currency(@bid.total, unit: "R$ ", separator: ",", delimiter: "") %> </span>
+  </div>
 
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Quantity</th>
-      <th scope="col">Image</th>
-      <th scope="col">Description</th>
-      <th scope="col">Items Price</th>
+      <th scope="col">Quant</th>
+      <th scope="col"></th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Preço UN</th>
+      <th scope="col">Total</th>
     </tr>
   </thead>
   <tbody>
     <% @bid.bid_products.each do |bid_product| %>
       <tr>
         <td><%= bid_product.quantity %></td>
-        <td><%= image_tag (""), height: 50, width: 50, crop: :fill, class: "" %></td>
+        <td><%= image_tag Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3), height: 75, width: 75, crop: :fill, class: "" %></td>
         <td><%= bid_product.product.description %></td>
-        <td><%= bid_product.unit_price * bid_product.quantity %> </td>
+        <td><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></td>
+        <td><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+
   <% if @bid.seller.user == current_user %>
     <%= link_to "Voltar", seller_path(@bid), class: 'btn btn-primary' %>
   <% else %>
@@ -33,5 +37,4 @@
     <%= hidden_field_tag 'bid_id', @bid.id %>
     <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
   <% end %>
-
 </div>
