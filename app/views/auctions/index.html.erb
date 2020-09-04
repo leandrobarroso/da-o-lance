@@ -19,7 +19,7 @@
               <div class="col">
                 <%= link_to auction_path(auction) do%>
                   <button type="button" class="w-50 btn btn-primary">
-                    Lances <span class="badge badge-light"><%= auction.bids.count %></span>
+                    Lances <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
                   </button>
                 <% end %>
               </div>
