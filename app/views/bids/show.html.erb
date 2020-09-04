@@ -27,17 +27,19 @@
     </tbody>
   </table>
 
-  <div class="d-flex justify-content-center">
-    <%= form_tag orders_path do %>
-      <%= hidden_field_tag 'bid_id', @bid.id %>
-      <%= button_tag :submit, class: 'btn' do %>
-        <div class="d-flex flex-column align-items-center">
-          <i class="fas fa-shopping-cart display-4 text-danger"></i>
-          <span>COMPRAR</span>
-        </div>
+  <% unless current_user.seller %>
+    <div class="d-flex justify-content-center">
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'bid_id', @bid.id %>
+        <%= button_tag :submit, class: 'btn' do %>
+          <div class="d-flex flex-column align-items-center">
+            <i class="fas fa-shopping-cart display-4 text-danger"></i>
+            <span>COMPRAR</span>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
 </div>
 <%= render 'shared/control_footer' %>

@@ -10,7 +10,7 @@
     <div class="my-3">
       <h3>Abertas</h3>
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
-        <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
+        <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
           <ul class="list-group">
             <li class="list-group-item">
               <div class="row align-items-center">

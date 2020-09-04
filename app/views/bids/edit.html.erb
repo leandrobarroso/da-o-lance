@@ -21,7 +21,7 @@
   <div class="row bg-white border">
     <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
     <div class="col-7 d-flex justify-content-start">
-      <%= "product .photo"  %>
+      <%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %>
       <span><%= product.description  %></span>
     </div>
     <div class="col-1 text-center">
@@ -40,8 +40,6 @@
   <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string %>
 
   <%= f.submit %>
-  <p></p>
-  <p><%= link_to "Voltar", seller_path, class: 'btn btn-primary' %></p>
 <% end %>
 </div>
 <%= render 'shared/control_footer' %>

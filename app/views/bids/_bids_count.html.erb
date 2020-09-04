@@ -1,4 +1,4 @@
-<% user.auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
+<% user.auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row align-items-center">
