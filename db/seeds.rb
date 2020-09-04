@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "creating fake users"
+
 20.times do |i|
   user = User.new(
     email: Faker::Internet.email,
@@ -21,7 +22,7 @@ puts "done"
 puts "creating fake sellers"
 20.times do |i|
   seller = Seller.new(
-    user_id: i + 1,
+    user_id: rand(1..User.count),
     name: Faker::Company.name,
     address: Faker::Address.full_address
     )
@@ -42,7 +43,7 @@ puts "done"
 puts "creating auctions"
 30.times do |i|
   auction = Auction.new(
-    user_id: rand(1..20),
+    user_id: rand(1..User.count),
     deadline: DateTime.now,
     delivery_time: DateTime.now,
     list_name: Faker::Marketing.buzzwords
@@ -54,8 +55,8 @@ puts "done"
 puts "creating auction products"
 90.times do |i|
   auction_product = AuctionProduct.new(
-    auction_id: rand(1..30),
-    product_id: rand(1..40),
+    auction_id: rand(1..Auction.count),
+    product_id: rand(1..Product.count),
     quantity: rand(1..20)
     )
   auction_product.save!
@@ -71,12 +72,28 @@ Seller.all.each do |seller|
     bid = Bid.new(
     auction_id: auction_id,
     seller_id: seller.id,
-    total: rand(1.0..500.0),
+    total: 0,
     status: 'normal'
     )
     bid.save!
     auctions_indexes.delete(auction_id)
   end
 end
+
+puts "creating bid products"
+AuctionProduct.all.each do |auc_prod|
+  auc_prod.auction.bids.each do |bid|
+    bid_product = BidProduct.new(
+    bid_id: bid.id,
+    product_id: auc_prod.product.id,
+    quantity: auc_prod.quantity,
+    unit_price: rand(1.00..500.00)
+    )
+  bid_product.save!
+  bid.total = bid.total_price
+  end
+end
+puts "done"
+
 
 puts "done"
