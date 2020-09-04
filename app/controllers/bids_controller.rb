@@ -19,7 +19,7 @@ class BidsController < ApplicationController
     else
       @bid = Bid.create(auction: @auction, seller: @seller)
       @auction.auction_products.each do |auct_product|
-        BidProduct.create(bid: @bid, product: auct_product.product, quantity: auct_product.quantity)
+        BidProduct.create(bid: @bid, product: auct_product.product, quantity: auct_product.quantity, unit_price: 0.01)
       end
       redirect_to edit_bid_url(@bid)
     end

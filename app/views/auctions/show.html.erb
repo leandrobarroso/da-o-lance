@@ -34,7 +34,7 @@
     </tr>
   </thead>
   <tbody id="bids" data-auction-id="<%= @auction.id %>">
-    <% @auction.bids.each do |bid| %>
+    <% @auction.bids.order(:total).each do |bid| %>
       <tr class="bid-container" id="bid-<%= bid.id %>">
         <td><%= bid.seller.name %></td>
         <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
