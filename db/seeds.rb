@@ -22,7 +22,7 @@ puts "done"
 puts "creating fake sellers"
 20.times do |i|
   seller = Seller.new(
-    user_id: rand(1..User.count),
+    user_id: rand(1..User.count - 1),
     name: Faker::Company.name,
     address: Faker::Address.full_address
     )
