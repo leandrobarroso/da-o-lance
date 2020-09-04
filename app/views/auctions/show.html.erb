@@ -24,6 +24,7 @@
   </table>
 
   <h4>Lances</h4>
+
   <table class="table">
     <thead>
     <tr>
@@ -32,9 +33,9 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="bids" data-auction-id="<%= @auction.id %>">
     <% @auction.bids.each do |bid| %>
-      <tr>
+      <tr class="bid-container" id="bid-<%= bid.id %>">
         <td><%= bid.seller.name %></td>
         <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
         <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
@@ -49,4 +50,4 @@
     <%= link_to "Editar", auctions_path, class: "btn btn-danger" %>
   <% end %>
 </div>
-
+<%= render 'shared/control_footer' %>

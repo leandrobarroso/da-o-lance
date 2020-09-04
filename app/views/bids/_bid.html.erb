@@ -1,0 +1,7 @@
+<% @auction.bids.each do |bid| %>
+  <tr>
+    <td><%= bid.seller.name %></td>
+    <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
+    <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
+  </tr>
+<% end %>

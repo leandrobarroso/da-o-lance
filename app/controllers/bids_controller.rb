@@ -31,9 +31,19 @@ class BidsController < ApplicationController
 
   def update
     @bid = Bid.find(params[:id])
+    @auction = @bid.auction
+    @user = @auction.user
     if @bid.update(bid_params)
       @bid.total = @bid.total_price
       @bid.save
+      AuctionChannel.broadcast_to(
+        @auction,
+        render_to_string(partial: "bid", locals: { bid: @bid })
+      )
+      UserChannel.broadcast_to(
+        @auction.user,
+        render_to_string(partial: "bids_count", locals: { user: @user })
+      )
       redirect_to @bid.seller, notice: 'bid was successfully updated.'
     else
       render :edit
