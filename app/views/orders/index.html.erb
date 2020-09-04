@@ -5,10 +5,10 @@
     <% @orders.each do |order| %>
       <div class="col-6 col-md-4">
         <div class="card">
-          <%= image_tag teddy.photo_url , class: "card-img-top" %>
+          <%#= image_tag teddy.photo_url , class: "card-img-top" %>
           <div class="card-body">
-            <h5 class="card-title"><%= order.auction_id %></h5>
-            <p class="card-text"><%= order.category.name %></p>
+            <h5 class="card-title"><%= order.bid_id %></h5>
+            <p class="card-text"><%#= order.category.name %></p>
             <%= link_to "More details", order_path(order), class: "btn btn-primary" %>
           </div>
         </div>
