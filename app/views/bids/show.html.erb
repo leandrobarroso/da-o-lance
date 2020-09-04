@@ -32,9 +32,9 @@
   <% else %>
     <%= link_to "Voltar", auctions_path, class: 'btn btn-primary' %>
   <% end %>
-
+  <p></p>
   <%= form_tag orders_path do %>
     <%= hidden_field_tag 'bid_id', @bid.id %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <%= submit_tag 'Purchase', class: 'btn btn-success' %>
   <% end %>
 </div>
