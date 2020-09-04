@@ -1,0 +1,21 @@
+<% user.auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="row align-items-center">
+        <div class="col">
+          <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+        </div>
+        <div class="col">
+          <%= link_to auction_path(auction) do%>
+            <button type="button" class="w-50 btn btn-primary">
+              Lances <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
+            </button>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-4">
+          <span>Tempo restante: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+        </div>
+      </div>
+    </li>
+  </ul>
+<% end %>
