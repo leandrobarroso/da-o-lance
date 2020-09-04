@@ -11,8 +11,7 @@ class OrdersController < ApplicationController
 
   def create
     bid = Bid.find(params[:bid_id])
-    order = Order.create!(bid: bid)
-
+    order = Order.create!(bid: bid, amount: bid.total)
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{

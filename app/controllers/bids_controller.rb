@@ -4,6 +4,7 @@ class BidsController < ApplicationController
     @bids = @auctions.map do |auction|
       Bid.where(auction: auction)
     end.flatten
+
     # @bids = Bid.where(seller_id: current_user.id)
   end
 
