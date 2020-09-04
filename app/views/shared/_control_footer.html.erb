@@ -1,6 +1,12 @@
 <div class="container">
   <div class="my-5 border rounded-lg shadow-sm p-3 bg-white d-flex justify-content-between">
     <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i>'.html_safe, :back, class: "h1 text-info" %>
+    <% if current_user.seller %>
+      <%= link_to '<i class="fas fa-th-list"></i>'.html_safe, seller_path(current_user.seller), class: 'h1 text-primary' %>
+    <% else %>
+      <%= link_to '<i class="fas fa-th-list"></i>'.html_safe, auctions_path, class: 'h1 text-primary' %>
+    <% end %>
     <%= link_to '<i class="fas fa-home"></i>'.html_safe, root_path, class: "h1 text-success" %>
   </div>
 </div>
+
