@@ -28,7 +28,7 @@ import "cocoon";
 // import { initSelect2 } from '../components/init_select2';
 import { initComingSoon } from './init_coming_soon';
 import { initFlatPickr } from "../plugins/init_flatpickr"
-import { initSelect2 } from './plugins/init_select2';
+import { initSelect2 } from '../plugins/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

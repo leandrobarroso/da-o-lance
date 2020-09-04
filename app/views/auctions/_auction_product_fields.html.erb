@@ -1,7 +1,7 @@
 <tr class='nested-fields'>
-  <td class="align-items-center">
+  <td class="col-1 align-items-center">
     <%= link_to_remove_association '<i class="fas fa-times-circle"></i>'.html_safe, f, class: 'h1 text-danger' %>
   </td>
-  <td><%= f.input :product_id, label: false, collection: @products.map { |product| [product.description, product.id, {data: {description: product.description}}] } %></td>
-  <td><%= f.input :quantity, label: false, collection: (1..99999), as: :integer %></td>
+  <td class="col-6"><%= f.input :product_id, label: false, collection: @products.map { |product| [product.description, product.id, {data: {description: product.description}}]}, input_html: {class: "select2"} %></td>
+  <td class="col-4 col-md-2"><%= f.input :quantity, label: false, collection: (1..99999), as: :integer, class: 'w-100' %></td>
 </tr>

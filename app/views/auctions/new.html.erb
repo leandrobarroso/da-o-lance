@@ -1,11 +1,11 @@
 <div class="container p-3">
   <h1>Nova Lista</h1>
-  <%= simple_form_for @auction do |f| %>
+  <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
     <%= f.input :list_name, label: 'Nome da Nova Lista' %>
     <div class="d-flex justify-content-between align-items-end datetimepicker">
-      <%= f.input :deadline, label: 'Data de Encerramento', as: :string, input_html: {id: "deadline_input"} %>
-      <%= f.input :delivery_time, label: 'Data da Entrega', as: :string, input_html: {id: "delivery_time_input"} %>
+      <%= f.input :deadline, label: 'Encerrar leilão em:', as: :string, input_html: {id: "deadline_input"} %>
+      <%= f.input :delivery_time, label: 'Entregar pedido em:', as: :string, input_html: {id: "delivery_time_input"} %>
     </div>
     <%= f.input :sub_itens, label: 'Aceitar produtos similares' %>
 
@@ -31,8 +31,5 @@
       <%= f.button :submit,  "Enviar Lista", class: 'btn btn-primary' %>
     </div>
   <% end %>
-  <div class="my-5 border rounded-lg shadow-sm p-3 bg-white d-flex justify-content-between">
-    <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i>'.html_safe, :back, class: "h1 text-info" %>
-    <%= link_to '<i class="fas fa-home"></i>'.html_safe, root_path, class: "h1 text-success" %>
-  </div>
 </div>
+<%= render 'shared/control_footer' %>
