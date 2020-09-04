@@ -26,11 +26,14 @@ import "cocoon";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../plugins/init_select2';
+import { initFlatPickr } from "../plugins/init_flatpickr"
+
 import { initComingSoon } from './init_coming_soon';
+
 import { initAuctionCable } from '../channels/auction_channel';
 import { initUserCable } from '../channels/user_channel';
-import { initFlatPickr } from "../plugins/init_flatpickr"
-import { initSelect2 } from '../plugins/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
