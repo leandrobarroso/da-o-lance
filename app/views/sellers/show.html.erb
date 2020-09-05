@@ -2,8 +2,8 @@
   <h1>Dashboard - <%= @seller.name %></h1>
   <div class="row">
     <div class="col">
-      <h2>Meus leilões</h2>
-      <h4>Abertos</h4>
+      <h2>My Auctions</h2>
+      <h4>Open</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
           <li class="list-group-item">
@@ -16,14 +16,14 @@
           </li>
         <% end %>
       </ul>
-      <h4>Encerrados</h4>
+      <h4>Ended</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>
           <li class="list-group-item">
             <div class="row">
               <span class="col-1"><%= "#{auction.id}" %></span>
               <span class="col-4">Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
-              <span class="col-6">Finished: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
+              <span class="col-6">Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
               <%= link_to '<i class="fas fa-search"></i>'.html_safe, auction_path(auction), class: 'col-1' %>
             </div>
           </li>
@@ -31,8 +31,8 @@
       </ul>
     </div>
     <div class="col">
-      <h2>Meus lances</h2>
-      <h4>Abertos</h4>
+      <h2>My Bids</h2>
+      <h4>Open</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>
           <li class="list-group-item">
@@ -45,7 +45,7 @@
           </li>
         <% end %>
       </ul>
-      <h4>Vencedores</h4>
+      <h4>Winners</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status }.each do |bid| %>
           <li class="list-group-item">
@@ -58,7 +58,7 @@
           </li>
         <% end %>
       </ul>
-      <h4>Perdedores</h4>
+      <h4>Losers</h4>
       <ul class="list-group">
         <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status == false }.each do |bid| %>
           <li class="list-group-item">

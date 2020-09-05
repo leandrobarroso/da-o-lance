@@ -22,7 +22,7 @@ puts "done"
 puts "creating fake sellers"
 20.times do |i|
   seller = Seller.new(
-    user_id: rand(1..User.count),
+    user_id: rand(1..User.count - 1),
     name: Faker::Company.name,
     address: Faker::Address.full_address
     )
@@ -43,7 +43,7 @@ puts "done"
 puts "creating auctions"
 30.times do |i|
   auction = Auction.new(
-    user_id: rand(1..User.count),
+    user_id: rand(1..User.count - 1),
     deadline: DateTime.now,
     delivery_time: DateTime.now,
     list_name: Faker::Marketing.buzzwords
@@ -55,8 +55,8 @@ puts "done"
 puts "creating auction products"
 90.times do |i|
   auction_product = AuctionProduct.new(
-    auction_id: rand(1..Auction.count),
-    product_id: rand(1..Product.count),
+    auction_id: rand(1..Auction.count - 1),
+    product_id: rand(1..Product.count - 1),
     quantity: rand(1..20)
     )
   auction_product.save!
@@ -66,7 +66,7 @@ puts "done"
 
 puts "creating bids"
 Seller.all.each do |seller|
-  auctions_indexes = (1..Auction.all.count).to_a
+  auctions_indexes = (1..Auction.all.count - 1).to_a
   5.times do
     auction_id = auctions_indexes.sample
     bid = Bid.new(

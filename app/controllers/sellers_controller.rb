@@ -18,7 +18,7 @@ class SellersController < ApplicationController
     @seller.user = @user
 
     if @seller.save
-      redirect_to seller_path(@seller.id), notice: 'Your seller profile has been created!'
+      redirect_to user_root_path, notice: 'Your seller profile has been created!'
     else
       render :new
     end

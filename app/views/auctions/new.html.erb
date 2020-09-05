@@ -1,21 +1,21 @@
 <div class="container col-6">
-  <h1>Nova Lista</h1>
+  <h1>New Shop List</h1>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
-    <%= f.input :list_name, label: 'Nome da Nova Lista' %>
+    <%= f.input :list_name, label: 'New List Name' %>
     <div class="d-flex justify-content-between align-items-end datetimepicker">
-      <%= f.input :deadline, label: 'Encerrar leilão em:', as: :string, input_html: {id: "deadline_input"} %>
-      <%= f.input :delivery_time, label: 'Entregar pedido em:', as: :string, input_html: {id: "delivery_time_input"} %>
+      <%= f.input :deadline, label: 'Bidding deadline:', as: :string, input_html: {id: "deadline_input"} %>
+      <%= f.input :delivery_time, label: 'Delivery on:', as: :string, input_html: {id: "delivery_time_input"} %>
     </div>
-    <%= f.input :sub_itens, label: 'Aceitar produtos similares' %>
+    <%= f.input :sub_itens, label: 'Accept substitute items' %>
 
-    <h3>Produtos</h3>
+    <h3>Items</h3>
 
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th>Produto</th>
+          <th>Item</th>
           <th>Quant</th>
         </tr>
       </thead>
@@ -26,9 +26,9 @@
       </tbody>
     </table>
     <div class="form-actions d-flex justify-content-around">
-      <%= link_to_add_association 'Incluir produto', f, :auction_products, class: 'btn btn-secondary',
+      <%= link_to_add_association 'Add Item', f, :auction_products, class: 'btn btn-secondary',
       data: { association_insertion_node: '.products', association_insertion_method: :append } %>
-      <%= f.button :submit,  "Enviar Lista", class: 'btn btn-primary' %>
+      <%= f.button :submit,  "Post List", class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
