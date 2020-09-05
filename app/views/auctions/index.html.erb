@@ -1,14 +1,14 @@
 <div class="container col-8">
   <div class="p-2 d-flex justify-content-between align-items-center">
-    <h2>Minhas listas</h2>
+    <h2>My Shop Lists</h2>
     <div class="d-flex flex-column align-items-center">
       <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_auction_path, class: 'display-4' %>
-      <span>CRIAR LISTA</span>
+      <span>ADD LIST</span>
     </div>
   </div>
   <div class="m-3 p-2">
     <div class="my-3">
-      <h3>Abertas</h3>
+      <h3>Open</h3>
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
           <ul class="list-group">
@@ -25,7 +25,7 @@
                   <% end %>
                 </div>
                 <div class="col-12 col-sm-4">
-                  <span>Tempo restante: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                  <span>Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
                 </div>
               </div>
             </li>
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="my-3">
-      <h3>Finalizadas</h3>
+      <h3>Ended</h3>
       <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>
         <ul class="list-group">
           <li class="list-group-item">
@@ -43,10 +43,10 @@
                 <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
               </div>
               <div class="col">
-                <span>Lances: <%= auction.bids.count %></span>
+                <span>Bids: <%= auction.bids.count %></span>
               </div>
               <div class="col-12 col-sm-4">
-                <span>Finalizado em: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                <span>Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
               </div>
             </div>
           </li>
