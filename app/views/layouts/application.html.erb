@@ -16,16 +16,6 @@
     <div id="yeield-container">
       <%= yield %>
     </div>
-    <footer class="py-3">
-        <p class="text-center">
-          Developed at <%= link_to "https://www.lewagon.com", :target => "_blank", class: "navbar-brand" do %>
-            <%= image_tag "logolw.png", height: 30, width: 30, crop: :fill  %>
-          <% end %><br> by
-          <strong class="colab-color"><%= link_to "Cristiane Silva", "https://github.com/cristianeasilva", :target => "_blank", class: "text-info" %></strong>,
-          <strong><%= link_to "Leandro Barroso", "https://leandrobarroso.github.io/profile/", :target => "_blank", class: "text-info" %></strong>  and
-          <strong><%= link_to "Ewerton Teixeira", "https://github.com/ewertonteixeira10", :target => "_blank", class: "text-info" %></strong>
-        </p>
-        <!-- <div class="pt-3 text-light text-center">Icons made by <a class="text-info" href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a class="text-info" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
-    </footer>
+    <%= render 'shared/footer' %>
     </body>
 </html>

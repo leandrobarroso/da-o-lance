@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
-  resources :orders, only: [:index, :show]
-
   get '/user' => "sellers#show", :as => :user_root
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
