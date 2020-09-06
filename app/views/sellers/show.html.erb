@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>Dashboard - <%= @seller.name %></h1>
+
+  <div class="my-4 border-lg shadow p-2 bg-white d-flex align-items-center">
+    <%= cl_image_tag @seller.photo.key, class: "m-2 avatar-square-lg" %>
+    <h1><%= @seller.name %></h1>
+  </div>
+
+
   <div class="row">
     <div class="col">
       <h2>My Auctions</h2>

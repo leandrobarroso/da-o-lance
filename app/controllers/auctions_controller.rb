@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
   def index
-    @auctions = Auction.where(user_id: current_user.id)
+    @auctions = policy_scope(Auction).where(user_id: current_user.id)
   end
 
   def new
