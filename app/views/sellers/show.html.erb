@@ -1,7 +1,11 @@
 <div class="container">
 
   <div class="m-4 mb-5 rounded-lg shadow p-4 bg-white d-flex align-items-center">
-    <%= cl_image_tag @seller.photo.key, class: "m-2 avatar-square-lg" %>
+    <% if @seller.photo.attached? %>
+      <%= cl_image_tag @seller.photo.key, class: "m-2 avatar-square-lg" %>
+    <% else %>
+      <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end %>
     <h1><%= @seller.name %></h1>
   </div>
 
@@ -9,18 +13,26 @@
     <div class="mx-3 rounded-lg shadow p-4 bg-white d-flex flex-column col">
       <h2>My Auctions</h2>
       <h4><i class="fas fa-hourglass-half"></i> Open</h4>
+
       <ul class="list-group">
-        <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
-          <li class="list-group-item">
-            <div class="row">
-              <span class="col-1"><%= "#{auction.id}" %></span>
-              <span class="col-4"> Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
-              <span class="col-6">Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
-              <%= link_to '<i class="fas fa-hand-point-up"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
-            </div>
+        <% if @auctions.select { |auct| auct.deadline > Time.now }.blank? %>
+          <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
+            <span>You don't have any open auctions</span>
           </li>
+        <% else %>
+          <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
+            <li class="list-group-item">
+              <div class="row">
+                <span class="col-1"><%= "#{auction.id}" %></span>
+                <span class="col-4"> Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
+                <span class="col-6">Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                <%= link_to '<i class="fas fa-hand-point-up"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
+              </div>
+            </li>
+          <% end %>
         <% end %>
       </ul>
+
       <h4><i class="fas fa-hourglass-end"></i> Ended</h4>
       <ul class="list-group">
         <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>

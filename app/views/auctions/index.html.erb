@@ -12,51 +12,61 @@
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
       <h3><i class="fas fa-hourglass-half"></i> Open</h3>
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
-        <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
-          <ul class="list-group">
-            <li class="my-1 rounded-lg shadow-sm list-group-item">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
-                </div>
-                <div class="col">
-                  <%= link_to auction_path(auction) do%>
-                    <button type="button" class="w-50 btn btn-primary">
-                      Bids <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
-                    </button>
-                  <% end %>
-                </div>
-                <div class="col-12 col-sm-4">
-                  <span>Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
-                </div>
-              </div>
+        <ul class="list-group">
+          <% if @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.blank? %>
+            <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
+              <span>You don't have any open auctions</span>
             </li>
-          </ul>
-        <% end %>
+          <% else %>
+            <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
+                <li class="my-1 rounded-lg shadow-sm list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+                    </div>
+                    <div class="col">
+                      <%= link_to auction_path(auction) do%>
+                        <button type="button" class="w-50 btn btn-primary">
+                          Bids <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
+                        </button>
+                      <% end %>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      <span>Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                    </div>
+                  </div>
+                </li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
 
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
       <h3><i class="fas fa-hourglass-end"></i> Ended</h3>
-      <% @auctions.select { |auct| auct.deadline < Time.now }.each do |auction| %>
+      <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <ul class="list-group">
-          <li class="my-1 rounded-lg shadow-sm list-group-item">
-            <div class="row align-items-center">
-              <div class="col">
-                <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
-              </div>
-              <div class="col">
-                <span>Bids: <%= auction.bids.count %></span>
-              </div>
-              <div class="col-12 col-sm-4">
-                <span>Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
-              </div>
-            </div>
-          </li>
+          <% if @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.blank? %>
+            <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
+              <span>You don't have any open auctions</span>
+            </li>
+          <% else %>
+            <% @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.each do |auction| %>
+                <li class="my-1 rounded-lg shadow-sm list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                      <span>Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
+                    </div>
+                  </div>
+                </li>
+            <% end %>
+          <% end %>
         </ul>
-      <% end %>
+      </div>
     </div>
   </div>
   <%= render 'shared/control_footer' %>
 </div>
-
