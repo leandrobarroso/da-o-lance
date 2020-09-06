@@ -7,13 +7,14 @@ class AuctionsController < ApplicationController
     @auction = Auction.new
     @products = Product.all
     @auction_product = AuctionProduct.new
+    authorize @auction
   end
 
   def create
     @products = Product.all
     @auction = Auction.new(auction_params)
     @auction.user = current_user
-
+    authorize @auction
     if @auction.save
       redirect_to auctions_path
     else
@@ -23,6 +24,7 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
+    authorize @auction
   end
 
   private

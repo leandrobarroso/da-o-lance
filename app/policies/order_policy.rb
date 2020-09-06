@@ -1,12 +1,8 @@
-class AuctionPolicy < ApplicationPolicy
+class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  end
-
-  def new?
-    true
   end
 
   def create?
@@ -14,6 +10,6 @@ class AuctionPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.bid.auction.user == user
   end
 end
