@@ -15,7 +15,7 @@
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.blank? %>
             <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-              <span>You don't have any open auctions</span>
+              <span>You don't have any open auction</span>
             </li>
           <% else %>
             <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
@@ -48,7 +48,7 @@
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.blank? %>
             <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-              <span>You don't have any open auctions</span>
+              <span>You don't have any ended auction</span>
             </li>
           <% else %>
             <% @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.each do |auction| %>
