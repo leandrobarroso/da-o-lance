@@ -10,7 +10,7 @@ class BidPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.seller == user.seller
+    record.auction.deadline > Time.now && record.seller == user.seller
   end
 
   def update?
@@ -18,6 +18,10 @@ class BidPolicy < ApplicationPolicy
   end
 
   def show?
-    record.auction.user == user
+    if record.auction.deadline > Time.now
+      record.auction.user == user || record.seller == user.seller
+    else
+      user.seller
+    end
   end
 end

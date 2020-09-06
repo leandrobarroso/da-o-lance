@@ -14,6 +14,6 @@ class AuctionPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.user == user || user.seller
   end
 end
