@@ -2,7 +2,7 @@
   <h1>New Shop List</h1>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
-    <p class="form-text">New List Name</p>
+    <p class="form-text">New List Name *</p>
     <%= f.input :list_name, label: false %>
     <div class="d-flex justify-content-between align-items-end datetimepicker">
       <%= f.input :deadline, label: 'Bidding deadline:', as: :string, input_html: {id: "deadline_input"} %>
