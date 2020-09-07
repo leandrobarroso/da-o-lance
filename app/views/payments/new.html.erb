@@ -1,10 +1,18 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="m-5 bg-white col-xs-12 col-sm-12 col-md-8 col-lg-6 col-sm-offset-4">
+    <div class="m-5 p-3 bg-white col-xs-12 col-sm-12 col-md-8 col-lg-6 col-sm-offset-4">
       <div class="col">
-        <h1>Order Details</h1>
+        <h1>Confirm Order</h1>
 
         <ul class="list-group">
+          <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <span>QTD</span>
+                <span>PRODUCT</span>
+                <span>PRICE UN</span>
+                <span>TOTAL</span>
+              </div>
+            </li>
           <% @order.bid.bid_products.each do |bid_product| %>
             <li class="list-group-item">
               <div class="d-flex justify-content-between">
@@ -17,11 +25,23 @@
           <% end %>
         </ul>
 
-        <p>Total: <strong><%= number_to_currency(@order.amount, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
+        <p class="my-2 h4 text-right">Total: <strong><%= number_to_currency(@order.amount, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
 
-        <button id="pay" class="btn btn-primary">Payment</button>
+        <div class="my-3 border p-2">
+          <h4>Delivery Info</h4>
+          <p class="text-left">
+            <%= @order.bid.auction.delivery_time %>
+          </p>
+          <div>
+            <p class="text-left">
+            Address: <%= @order.bid.auction.user.address %>
+          </p>
+          </div>
+        </div>
+
+        <%= button_tag '<span><i class="fas fa-cash-register"></i> Go to Payment</span>'.html_safe, id: "pay", class: "btn btn-primary" %>
+
         <script src="https://js.stripe.com/v3/"></script>
-
         <script>
           const paymentButton = document.getElementById('pay');
           paymentButton.addEventListener('click', () => {
