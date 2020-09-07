@@ -1,20 +1,25 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 200, width: 200, crop: :fill, class: "" %></div>
-    <div class="col">
-      <h1>Resumo do Pagamento</h1>
-      <p>Valor total de <strong><%= humanized_money_with_symbol @order.amount_cents / 100 %></strong></p>
-      <button id="pay" class="btn btn-primary">Pagar</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+  <div class="row justify-content-center">
+    <div class="m-5 bg-white col-xs-12 col-sm-10 col-md-6 col-lg-4 col-sm-offset-4">
+      <div class="col">
+        <h1>Payment Details</h1>
+        <p>Total: <strong><%= number_to_currency(@order.amount, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
+
+        <button id="pay" class="btn btn-primary">Payment</button>
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+
+      </div>
     </div>
   </div>
+  <%= render 'shared/control_footer' %>
 </div>
