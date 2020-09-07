@@ -21,7 +21,7 @@ class BidPolicy < ApplicationPolicy
     if record.auction.deadline > Time.now
       record.auction.user == user || record.seller == user.seller
     else
-      user.seller
+      record.auction.user == user || user.seller
     end
   end
 end

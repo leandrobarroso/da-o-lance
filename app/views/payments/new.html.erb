@@ -1,20 +1,59 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 200, width: 200, crop: :fill, class: "" %></div>
-    <div class="col">
-      <h1>Resumo do Pagamento</h1>
-      <p>Valor total de <strong><%= humanized_money_with_symbol @order.amount_cents / 100 %></strong></p>
-      <button id="pay" class="btn btn-primary">Pagar</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+  <div class="row justify-content-center">
+    <div class="m-5 p-3 bg-white col-xs-12 col-sm-12 col-md-8 col-lg-6 col-sm-offset-4">
+      <div class="col">
+        <h1>Confirm Order</h1>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <span>QTD</span>
+                <span>PRODUCT</span>
+                <span>PRICE UN</span>
+                <span>TOTAL</span>
+              </div>
+            </li>
+          <% @order.bid.bid_products.each do |bid_product| %>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <span><%= bid_product.quantity %></span>
+                <span><%= bid_product.product.description %></span>
+                <span><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></span>
+                <span><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+
+        <p class="my-2 h4 text-right">Total: <strong><%= number_to_currency(@order.amount, unit: "R$ ", separator: ",", delimiter: "") %></strong></p>
+
+        <div class="my-3 border p-2">
+          <h4>Delivery Info</h4>
+          <p class="text-left">
+            <%= @order.bid.auction.delivery_time %>
+          </p>
+          <div>
+            <p class="text-left">
+            Address: <%= @order.bid.auction.user.address %>
+          </p>
+          </div>
+        </div>
+
+        <%= button_tag '<span><i class="fas fa-cash-register"></i> Go to Payment</span>'.html_safe, id: "pay", class: "btn btn-primary" %>
+
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+
+      </div>
     </div>
   </div>
+  <%= render 'shared/control_footer' %>
 </div>

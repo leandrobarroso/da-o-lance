@@ -1,13 +1,22 @@
-<div class="bg-img">
-  <div class="container text-white home-soon">
-    <div class="middle">
-      <h1>COMING SOON</h1>
-      <hr>
-      <p id="demo" style="font-size:30px"></p>
-      <span class="photo-credit">
-        Photo by <a href="https://unsplash.com/@hojipago?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">EJ Yao </a>
-        on <a href="https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
-       </span>
+    <!-- <div class="bg-img">
+      <div class="container text-white home-soon">
+        <div class="middle">
+          <h1>COMING SOON</h1>
+          <hr>
+          <p id="demo" style="font-size:30px"></p>
+          <span class="photo-credit">
+            Photo by <a href="https://unsplash.com/@hojipago?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">EJ Yao </a>
+            on <a href="https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+           </span>
+        </div>
+      </div>
     </div>
+ -->
+ <% content_for(:navbar_class, "navbar-home") %>
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1> Solicite orçamento e receba os lances</h1>
+    <p>Dá o Lance, traz um novo jeito de fazer suas compras em listas</p>
+    <%= link_to "Iniciar",user_root_path, class: "btn btn-lg btn-primary" %>
   </div>
 </div>

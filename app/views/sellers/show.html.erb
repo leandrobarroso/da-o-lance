@@ -43,7 +43,7 @@
                 <span class="col-1"><%= "#{auction.id}" %></span>
                 <span class="col-4"> <%= I18n.translate('seller_show.s_buyer') %>: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
                 <span class="col-6"><%= I18n.translate('seller_show.s_ended') %>: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
-                <%= link_to '<i class="fas fa-hand-point-up"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
+                <%= link_to '<i class="fas fa-search"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
               </div>
             </li>
           <% end %>

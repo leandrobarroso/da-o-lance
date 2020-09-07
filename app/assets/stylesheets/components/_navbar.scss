@@ -4,6 +4,22 @@
   background: white;
 }
 
+.navbar {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  width: 100%;
+  font-weight: bold;
+}
+.nav-link {
+  color: white !important;
+}
+
+.d-flex {
+  color: white;
+  font-weight: bold;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

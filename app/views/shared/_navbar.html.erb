@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", height: 90, width: 90, crop: :fill %>
   <% end %>
@@ -27,8 +27,8 @@
         <li class="nav-item">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex mx-5">
-              <%= link_to 'Sign Up'.html_safe, new_user_registration_path, class: 'nav-link mx-3' %>
-              <%= link_to 'Log In'.html_safe, new_user_session_path, class: 'nav-link mx-3' %>
+              <%= link_to 'Sign Up'.html_safe, new_user_registration_path, class: 'nav-link mx-3 btn-flat' %>
+              <%= link_to 'Log In'.html_safe, new_user_session_path, class: 'nav-link mx-3 btn-flat' %>
             </div>
             <%= render 'shared/become_seller_btn' %>
           </div>

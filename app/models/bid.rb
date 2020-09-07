@@ -9,7 +9,7 @@ class Bid < ApplicationRecord
   accepts_nested_attributes_for :bid_products
 
   def total_price
-    total_price = 0
+    total_price = 0.00
     bid_products.each do |bid_product|
       total_price += bid_product.quantity * bid_product.unit_price
     end
