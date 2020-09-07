@@ -1,4 +1,4 @@
-<div class="container col-6">
+<div class="container col-6 auctions">
   <h1>New Shop List</h1>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
@@ -7,7 +7,7 @@
       <%= f.input :deadline, label: 'Bidding deadline:', as: :string, input_html: {id: "deadline_input"} %>
       <%= f.input :delivery_time, label: 'Delivery on:', as: :string, input_html: {id: "delivery_time_input"} %>
     </div>
-    <%= f.input :sub_itens, label: 'Accept substitute items' %>
+
 
     <h3>Items</h3>
 
