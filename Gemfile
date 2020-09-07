@@ -34,6 +34,7 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'cocoon'
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

@@ -1,7 +1,14 @@
 <% @auction.bids.order(:total).each do |bid| %>
-  <tr>
-    <td><%= bid.seller.name %></td>
-    <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
-    <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
-  </tr>
+  <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">
+      <div>
+        <% if bid.seller.photo.attached? %>
+          <%= cl_image_tag bid.seller.photo.key, class: "m-2 avatar-square-lg" %>
+        <% else %>
+          <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <span><%= bid.seller.name %></span>
+      </div>
+      <p class="h5"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
+      <span><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></span>
+  </div>
 <% end %>

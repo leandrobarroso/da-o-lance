@@ -6,7 +6,7 @@
         <%= simple_form_for @seller do |f|%>
           <%= f.input :name, label: "Store name" %>
           <%= f.input :address %>
-          <%= f.input :photo, as: :file %>
+          <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
           <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>
         <%= link_to "back", user_root_path, class: "btn btn-secondary" %>

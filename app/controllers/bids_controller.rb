@@ -10,6 +10,7 @@ class BidsController < ApplicationController
 
   def show
     @bid = Bid.find(params[:id])
+    authorize @bid
   end
 
   def new
@@ -24,10 +25,12 @@ class BidsController < ApplicationController
       end
       redirect_to edit_bid_url(@bid)
     end
+    authorize Bid
   end
 
   def edit
     @bid = Bid.find(params[:id])
+    authorize @bid
   end
 
   def update
@@ -49,6 +52,7 @@ class BidsController < ApplicationController
     else
       render :edit
     end
+    authorize @bid
   end
 
   private
