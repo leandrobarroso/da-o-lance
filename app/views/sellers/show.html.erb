@@ -1,10 +1,9 @@
 <div class="container">
-
   <div class="m-4 mb-5 rounded-lg shadow p-4 bg-white d-flex align-items-center">
     <% if @seller.photo.attached? %>
       <%= cl_image_tag @seller.photo.key, class: "m-2 avatar-square-lg" %>
     <% else %>
-      <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= image_tag 'seller-default.png', width: 80, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% end %>
     <h1><%= @seller.name %></h1>
   </div>
@@ -119,4 +118,5 @@
     </div>
   </div>
   <%= render 'shared/control_footer' %>
+</div>
 </div>

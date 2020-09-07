@@ -1,5 +1,5 @@
 <div class="m-4 my-5 border rounded-lg shadow p-3 bg-white d-flex justify-content-between">
-  <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i>'.html_safe, :back, class: "h1 text-info" %>
+  <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i>'.html_safe, :back, class: "h1 text-secondary" %>
   <% if current_user.seller %>
     <%= link_to '<i class="fas fa-th-list"></i>'.html_safe, seller_path(current_user.seller), class: 'h1 text-primary' %>
   <% else %>

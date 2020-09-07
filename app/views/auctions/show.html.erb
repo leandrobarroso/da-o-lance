@@ -1,47 +1,50 @@
 <div class="container">
-  <h3><%= @auction.list_name %></h3>
+  <div class="m-4 my-5 border rounded-lg shadow p-3 bg-white d-flex flex-column justify-content-between">
+    <h3><%= @auction.list_name %></h3>
 
-  <p>Finalizado em: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
+    <p>Finalizado em: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
 
-  <h4>Produtos</h4>
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Quant</th>
-      <th scope="col"></th>
-      <th scope="col">Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @auction.auction_products.each do |auction_product| %>
-      <tr>
-        <td><%= auction_product.quantity %></td>
-        <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %></td>
-        <td><%= auction_product.product.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
+    <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
+      <h4>Produtos</h4>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Quant</th>
+          <th scope="col"></th>
+          <th scope="col">Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @auction.auction_products.each do |auction_product| %>
+          <tr>
+            <td><%= auction_product.quantity %></td>
+            <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %></td>
+            <td><%= auction_product.product.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
 
-  <h4>Lances</h4>
-
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Vendedor</th>
-      <th scope="col">Total</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="bids" data-auction-id="<%= @auction.id %>">
-    <% @auction.bids.order(:total).each do |bid| %>
-      <tr class="bid-container" id="bid-<%= bid.id %>">
-        <td><%= bid.seller.name %></td>
-        <td><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></td>
-        <td><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-  </table>
+    <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
+      <h4>Lances</h4>
+      <div id="bids" data-auction-id="<%= @auction.id %>">
+        <% @auction.bids.order(:total).each do |bid| %>
+          <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">
+              <div>
+                <% if bid.seller.photo.attached? %>
+                  <%= cl_image_tag bid.seller.photo.key, class: "m-2 avatar-square-lg" %>
+                <% else %>
+                  <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+                <span><%= bid.seller.name %></span>
+              </div>
+              <p class="h5"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
+              <span><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/control_footer' %>
 </div>
-<%= render 'shared/control_footer' %>
