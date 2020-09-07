@@ -1,45 +1,47 @@
 <div class="container">
-<h1><%= I18n.translate('bid_edit.s_bid') %></h1>
-<%= simple_form_for [@bid] do |f| %>
-
-  <div class="row border my-1">
-      <div class="col-7 text-center">
-        <%= I18n.translate('bid_edit.s_product') %>
+  <div class="m-4 my-5 border rounded-lg shadow p-3 px-5 bg-white d-flex flex-column justify-content-between">
+    <h1><%= I18n.translate('bid_edit.s_bid') %></h1>
+    <%= simple_form_for [@bid] do |f| %>
+      <div class="row rounded shadow-sm p-1 mx-1 my-3 bg-light">
+        <div class="col-6 text-center">
+          <%= I18n.translate('bid_edit.s_product') %>
+        </div>
+        <div class="col-1 text-center">
+          <%= I18n.translate('bid_edit.s_quant') %>
+        </div>
+        <div class="col-3 text-center">
+          <%= I18n.translate('bid_edit.s_un_price') %>
+        </div>
+        <div class="col-2 text-center">
+          <%= I18n.translate('bid_edit.s_tt_price') %>
+        </div>
       </div>
-      <div class="col-1 text-center">
-        <%= I18n.translate('bid_edit.s_quant') %>
-      </div>
-      <div class="col-2 text-center">
-        <%= I18n.translate('bid_edit.s_un_price') %>
-      </div>
-      <div class="col-2 text-center">
-        <%= I18n.translate('bid_edit.s_tt_price') %>
-      </div>
-    </div>
-  <%= f.simple_fields_for :bid_products do |ff|%>
+      <%= f.simple_fields_for :bid_products do |ff|%>
 
-  <div class="row bg-white border">
-    <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
-    <div class="col-7 d-flex justify-content-start">
-      <%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %>
-      <span><%= product.description  %></span>
-    </div>
-    <div class="col-1 text-center">
-      <span><%= @bid.bid_products[ff.index].quantity %></span>
-    </div>
-    <div class="col-2">
-    <%= ff.input :unit_price, label: false, placeholder: '0.00', as: :string %>
-    </div>
-    <div class="col-2">
-    <%= "codar preço total" %>
-    </div>
-  </div>
-  <% end %>
+        <div class="row mx-1 my-3 shadow-sm rounded-lg p-0 bg-white align-items-center">
+          <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
+          <div class="col-6 p-0 d-flex justify-content-start align-items-center">
+            <%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "m-0" %>
+            <span class="m-2 h4"><%= product.description  %></span>
+          </div>
+          <div class="col-1 h4 text-center">
+            <span><%= @bid.bid_products[ff.index].quantity %></span>
+          </div>
+          <div class="col-3 d-flex align-items-center">
+            <span class="h4">R$ </span>
+            <%= ff.input :unit_price, label: false, placeholder: '0.00', as: :string, input_html: { class: "unit-price" } %>
+          </div>
+          <div class="col-2">
+            <span><%= "codar preço total" %></span>
+          </div>
+        </div>
+      <% end %>
 
+      <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string %>
 
-  <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string %>
+      <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary' %>
+    <% end %>
 
-  <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary' %>
-<% end %>
 </div>
-<%= render 'shared/control_footer' %>
+    <%= render 'shared/control_footer' %>
+</div>
