@@ -5,6 +5,8 @@ class Bid < ApplicationRecord
   has_many :auction_products, through: :auction
   has_many :bid_products
   validates :seller, uniqueness: { scope: :auction, message: "only one bid per seller" }
+  validates :total, presence: true
+  # validates :bid_products, presence: true
 
   accepts_nested_attributes_for :bid_products
 

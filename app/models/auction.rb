@@ -5,4 +5,5 @@ class Auction < ApplicationRecord
   has_many :bids
   accepts_nested_attributes_for :auction_products, allow_destroy: true, reject_if: proc { |att| att['quantity'].blank? }
   validates :deadline, :list_name, presence: true
+  validates :auction_products, presence: true
 end
