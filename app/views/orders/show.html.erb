@@ -1,22 +1,19 @@
-<div class="container py-3">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <%#= image_tag(@teddy.photo_url, width: '100%') %>
-    </div>
-  </div>
-</div>
 <div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 200, width: 200, crop: :fill, class: "" %></div>
-    <div class="col">
-      <h2>Payment order <%= @order.id %> confirmed!<small><span class="badge badge-primary"><%= @order.status %></span></small></h2>
-      <ul class="list-unstyled">
-        <li><strong>EMITIDO EM</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>BID</strong> <%= @order.bid.auction.list_name %> [<%= @order.bid_id %>]</li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-      </ul>
-      <p>Envio estimado <strong>2 dias úteis</strong></p>
+  <div class="row justify-content-center">
+    <div class="m-5 p-3 bg-white col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-4">
+      <div class="col">
+        <h3 class="my-5 text-center"><i class="fas fa-receipt"></i> Order <%= @order.id %> receipt <small><span class="badge badge-primary"><%= @order.status %></span></small></h3>
+        <ul class="my-5 list-unstyled">
+          <li class="d-flex justify-content-between"><strong>CREATED</strong><span><%= "#{@order.created_at.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span></li>
+          <li class="d-flex justify-content-between"><strong>LIST</strong><span><%= @order.bid.auction.list_name %> [<%= @order.bid_id %>]</span></li>
+          <li class="d-flex justify-content-between"><strong>SELLER</strong><span><%= @order.bid.seller.name %></span></li>
+          <li class="d-flex justify-content-between"><strong>TOTAL</strong><span><%= humanized_money_with_symbol @order.amount %></span></li>
+          <li class="d-flex justify-content-between"><strong>PAYMENT METHOD</strong><span>CREDIT CARD</span></li>
+          <li class="d-flex justify-content-between"><strong>PAYMENT STATUS</strong><span>CONFIRMED</span></li>
+        </ul>
+        <h3 class="my-5 text-center">THANK YOU FOR YOUR PURCHASE!</h3>
+      </div>
     </div>
   </div>
+  <%= render 'shared/control_footer' %>
 </div>

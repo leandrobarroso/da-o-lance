@@ -2,7 +2,7 @@
   <div class="m-4 my-5 border rounded-lg shadow p-3 bg-white d-flex flex-column justify-content-between">
     <h3><%= @auction.list_name %></h3>
 
-    <p>Finalizado em: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
+    <p>Ends: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
 
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
       <h4>Produtos</h4>
