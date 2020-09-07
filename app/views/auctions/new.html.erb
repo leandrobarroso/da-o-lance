@@ -2,7 +2,8 @@
   <h1>New Shop List</h1>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
-    <%= f.input :list_name, label: 'New List Name' %>
+    <p class="form-text">New List Name</p>
+    <%= f.input :list_name, label: false %>
     <div class="d-flex justify-content-between align-items-end datetimepicker">
       <%= f.input :deadline, label: 'Bidding deadline:', as: :string, input_html: {id: "deadline_input"} %>
       <%= f.input :delivery_time, label: 'Delivery on:', as: :string, input_html: {id: "delivery_time_input"} %>
@@ -15,8 +16,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>Item</th>
-          <th>Quant</th>
+          <th class="w-50 text-center">Item</th>
+          <th class="w-25 text-center">Quant</th>
         </tr>
       </thead>
       <tbody class="products">
