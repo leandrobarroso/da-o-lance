@@ -10,40 +10,40 @@
 
   <div class="px-4 row">
     <div class="mx-3 rounded-lg shadow p-4 bg-white d-flex flex-column col">
-      <h2>My Auctions</h2>
-      <h4><i class="fas fa-hourglass-half"></i> Open</h4>
+      <h2><%= I18n.translate('seller_show.s_my_auctions') %></h2>
+      <h4><i class="fas fa-hourglass-half"></i> <%= I18n.translate('seller_show.s_open') %></h4>
       <ul class="list-group">
         <% if @auctions.select { |auct| auct.deadline > Time.now }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span>You don't have any open auction</span>
+            <span><%= I18n.translate('seller_show.s_any_open') %></span>
           </li>
         <% else %>
           <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
             <li class="list-group-item">
               <div class="row">
                 <span class="col-1"><%= "#{auction.id}" %></span>
-                <span class="col-4"> Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
-                <span class="col-6">Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                <span class="col-4"> <%= I18n.translate('seller_show.s_buyer') %>: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
+                <span class="col-6"><%= I18n.translate('seller_show.s_time_left') %>: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
                 <%= link_to '<i class="fas fa-hand-point-up"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
               </div>
             </li>
           <% end %>
         <% end %>
       </ul>
-      <h4><i class="fas fa-hourglass-end"></i> Ended</h4>
+      <h4><i class="fas fa-hourglass-end"></i> <%= I18n.translate('seller_show.s_ended') %></h4>
       <ul class="list-group">
         <% if @auctions.select { |auct| auct.deadline <= Time.now }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span>You don't have any open auction</span>
+            <span><%= I18n.translate('seller_show.s_any_ended') %></span>
           </li>
         <% else %>
           <% @auctions.select { |auct| auct.deadline <= Time.now }.each do |auction| %>
             <li class="list-group-item">
               <div class="row">
                 <span class="col-1"><%= "#{auction.id}" %></span>
-                <span class="col-4"> Buyer: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
-                <span class="col-6">Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
-                <%= link_to '<i class="fas fa-search"></i>'.html_safe, auction_path(auction), class: 'col-1' %>
+                <span class="col-4"> <%= I18n.translate('seller_show.s_buyer') %>: <%= "#{auction.user.first_name} #{auction.user.last_name}" %></span>
+                <span class="col-6"><%= I18n.translate('seller_show.s_ended') %>: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
+                <%= link_to '<i class="fas fa-search"></i>'.html_safe, new_auction_bid_path(auction), class: 'col-1' %>
               </div>
             </li>
           <% end %>
@@ -51,20 +51,20 @@
       </ul>
     </div>
     <div class="mx-3 rounded-lg shadow p-4 bg-white d-flex flex-column col">
-      <h2>My Bids</h2>
-      <h4><i class="fas fa-hourglass-half"></i> Open</h4>
+      <h2><%= I18n.translate('seller_show.s_my_bids') %></h2>
+      <h4><i class="fas fa-hourglass-half"></i> <%= I18n.translate('seller_show.s_open') %></h4>
 
       <ul class="list-group">
         <% if @seller.bids.select { |bd| bd.auction.deadline > Time.now }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span>You don't have any open bid</span>
+            <span><%= I18n.translate('seller_show.s_bid_open') %></span>
           </li>
         <% else %>
           <% @seller.bids.select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
-            <span class="col-4"> Auction: <%= "#{bid.auction.id}" %></span>
+            <span class="col-4"> <%= I18n.translate('seller_show.s_auction') %>: <%= "#{bid.auction.id}" %></span>
             <span class="col-6"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></span>
             <%= link_to '<i class="fas fa-search"></i>'.html_safe, edit_bid_path(bid), class: 'col-1' %>
           </div>
@@ -74,19 +74,19 @@
       </ul>
 
 
-      <h4><i class="fas fa-trophy"></i> Winners</h4>
+      <h4><i class="fas fa-trophy"></i> <%= I18n.translate('seller_show.s_winners') %></h4>
 
       <ul class="list-group">
         <% if @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span>You don't have winner bids yet</span>
+            <span><%= I18n.translate('seller_show.s_any_bid_won') %></span>
           </li>
         <% else %>
           <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
-            <span class="col-4"> Auction: <%= "#{bid.auction.id}" %></span>
+            <span class="col-4"> <%= I18n.translate('seller_show.s_auction') %>: <%= "#{bid.auction.id}" %></span>
             <span class="col-6"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></span>
             <%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %>
           </div>
@@ -95,19 +95,19 @@
         <% end %>
       </ul>
 
-      <h4><i class="fas fa-thumbs-down"></i> Losers</h4>
+      <h4><i class="fas fa-thumbs-down"></i> <%= I18n.translate('seller_show.s_losers') %></h4>
 
       <ul class="list-group">
         <% if @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status == false }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span>You don't have lost bids</span>
+            <span><%= I18n.translate('seller_show.s_any_bid_lost') %></span>
           </li>
         <% else %>
           <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status == false }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
-            <span class="col-4"> Auction: <%= "#{bid.auction.id}" %></span>
+            <span class="col-4"> <%= I18n.translate('seller_show.s_auction') %>: <%= "#{bid.auction.id}" %></span>
             <span class="col-6"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></span>
             <%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %>
           </div>

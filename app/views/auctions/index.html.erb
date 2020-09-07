@@ -1,19 +1,23 @@
 <div class="container col-8 auctions">
   <div class="m-4 mb-5 rounded-lg shadow p-4 bg-white d-flex justify-content-between align-items-center">
-    <h2><i class="fas fa-file-alt"></i> My Shop Lists</h2>
+    <h2><i class="fas fa-file-alt"></i> <%= I18n.translate('auction_index.shop') %> </h2>
     <div class="d-flex flex-column align-items-center">
       <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_auction_path, class: 'display-4' %>
-      <span>ADD LIST</span>
+
+
+      <span>
+        <%= I18n.translate('auction_index.addlist') %>
+      </span>
     </div>
   </div>
   <div class="m-4 my-5 rounded-lg shadow p-4 bg-white">
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
-      <h3><i class="fas fa-hourglass-half"></i> Open</h3>
+      <h3> <i class="fas fa-hourglass-half"> </i> <%= I18n.translate('auction_index.open') %></h3>
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.blank? %>
             <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-              <span>You don't have any open auction</span>
+              <span> <%= I18n.translate('auction_index.any_auction') %></span>
             </li>
           <% else %>
             <% @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.each do |auction| %>
@@ -40,12 +44,12 @@
       </div>
     </div>
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
-      <h3><i class="fas fa-hourglass-end"></i> Ended</h3>
+      <h3><i class="fas fa-hourglass-end"></i> <%= I18n.translate('auction_index.ended') %></h3>
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.blank? %>
             <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-              <span>You don't have any ended auction</span>
+              <span><%= I18n.translate('auction_index.any_ended') %></span>
             </li>
           <% else %>
             <% @auctions.order(:deadline).select { |auct| auct.deadline < Time.now }.each do |auction| %>
@@ -55,7 +59,7 @@
                       <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
                     </div>
                     <div class="col-12 col-sm-4">
-                      <span>Ended: <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
+                      <span><%= I18n.translate('auction_index.end') %> <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
                     </div>
                   </div>
                 </li>
