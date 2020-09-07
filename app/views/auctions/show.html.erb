@@ -2,16 +2,16 @@
   <div class="m-4 my-5 border rounded-lg shadow p-3 bg-white d-flex flex-column justify-content-between">
     <h3><%= @auction.list_name %></h3>
 
-    <p>Finalizado em: <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
+    <p><%= I18n.translate('auction_show.finished') %> <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
 
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
-      <h4>Produtos</h4>
+      <h4><%= I18n.translate('auction_show.products') %></h4>
       <table class="table">
         <thead>
         <tr>
-          <th scope="col">Quant</th>
+          <th scope="col"><%= I18n.translate('auction_show.quant') %></th>
           <th scope="col"></th>
-          <th scope="col">Descrição</th>
+          <th scope="col"><%= I18n.translate('auction_show.descr') %></th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
-      <h4>Lances</h4>
+      <h4><%= I18n.translate('auction_show.bids') %></h4>
       <div id="bids" data-auction-id="<%= @auction.id %>">
         <% @auction.bids.order(:total).each do |bid| %>
           <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">

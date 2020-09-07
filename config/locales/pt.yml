@@ -1,0 +1,91 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+pt:
+  hello: "Hello world"
+  auction_index:
+    addlist: "Criar lista"
+    open: "Listas abertas"
+    ended: "Listas finalizadas"
+    shop: "Meus leilões"
+    any_auction: "Você ainda não criou nenhuma lista"
+    any_ended: "Você ainda não possui nenhuma lista encerrada"
+    end: "Encerrada em:"
+  auction_show:
+    finished: "Finalizado em:"
+    products: "Produtos"
+    quant: "Quantidade"
+    descr: "Descrição"
+    bids: "Lances"
+  bid_show:
+    qt: "Quantidade"
+    descrip: "Descrição"
+    un_price: "Preço Unitário"
+    tt_price: "Preço Total"
+  auction_new:
+    new_shop: "Nova Lista de Compras"
+    list_name: "Nome da nova lista:"
+    deadline: "Término do leilão:"
+    delivery: "Data de entrega:"
+    items: "Itens"
+    Item: "Item"
+    quantity: "Quantidade"
+    add_item: "Adicionar Item"
+    post_list: "Salvar Lista"
+  seller_new:
+    register: "Registre-se como um vendedor"
+    store: "Noma da loja"
+    adress: "Endereço"
+    photo: "Carregue uma foto"
+    create: "Criar vendedor"
+    back: "Voltar"
+  seller_show:
+    s_my_auctions: "Meus Leilões"
+    s_open: "Abertos"
+    s_any_open: "Você não possui nenhum leilão aberto"
+    s_buyer: "Comprador"
+    s_time_left: "Tempo restante"
+    s_ended: "Finalizados"
+    s_any_ended: "Você não possui nenhum leilão finalizado"
+    s_my_bids: "Minhas propostas"
+    s_any_bid_open: "Você não possui nenhuma proposta aberta"
+    s_auction: "Leilão"
+    s_winners: "Leilões Vencidos"
+    s_losers: "Leilões Perdidos"
+    s_any_bid_won: "Você não venceu nenhum leilão"
+    s_any_bid_lost: "Você ainda não perdeu nenhum leilão"
+  bid_edit:
+    s_bid: "Detalhes da proposta"
+    s_product: "Produto"
+    s_quant: "Quantidade"
+    s_un_price: "Preço Unitário"
+    s_tt_price: "Preço Total"
+    s_up_bid: "Salvar alterações"

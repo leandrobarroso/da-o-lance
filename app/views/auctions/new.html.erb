@@ -1,22 +1,22 @@
 <div class="container col-6">
-  <h1>New Shop List</h1>
+  <h1><%= I18n.translate('auction_new.new_shop') %></h1>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
-    <%= f.input :list_name, label: 'New List Name' %>
+    <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
     <div class="d-flex justify-content-between align-items-end datetimepicker">
-      <%= f.input :deadline, label: 'Bidding deadline:', as: :string, input_html: {id: "deadline_input"} %>
-      <%= f.input :delivery_time, label: 'Delivery on:', as: :string, input_html: {id: "delivery_time_input"} %>
+      <%= f.input :deadline, label: I18n.translate('auction_new.deadline'), as: :string, input_html: {id: "deadline_input"} %>
+      <%= f.input :delivery_time, label: I18n.translate('auction_new.delivery'), as: :string, input_html: {id: "delivery_time_input"} %>
     </div>
     <%= f.input :sub_itens, label: 'Accept substitute items' %>
 
-    <h3>Items</h3>
+    <h3><%= I18n.translate('auction_new.items') %></h3>
 
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th>Item</th>
-          <th>Quant</th>
+          <th><%= I18n.translate('auction_new.item') %></th>
+          <th><%= I18n.translate('auction_new.quantity') %></th>
         </tr>
       </thead>
       <tbody class="products">
@@ -26,9 +26,9 @@
       </tbody>
     </table>
     <div class="form-actions d-flex justify-content-around">
-      <%= link_to_add_association 'Add Item', f, :auction_products, class: 'btn btn-secondary',
+      <%= link_to_add_association I18n.translate('auction_new.add_item'), f, :auction_products, class: 'btn btn-secondary',
       data: { association_insertion_node: '.products', association_insertion_method: :append } %>
-      <%= f.button :submit,  "Post List", class: 'btn btn-primary' %>
+      <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

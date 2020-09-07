@@ -1,19 +1,19 @@
 <div class="container">
-<h1>Bids#edit</h1>
+<h1><%= I18n.translate('bid_edit.s_bid') %></h1>
 <%= simple_form_for [@bid] do |f| %>
 
   <div class="row border my-1">
       <div class="col-7 text-center">
-        Produto
+        <%= I18n.translate('bid_edit.s_product') %>
       </div>
       <div class="col-1 text-center">
-        Quantidade
+        <%= I18n.translate('bid_edit.s_quant') %>
       </div>
       <div class="col-2 text-center">
-        Preço Unit.
+        <%= I18n.translate('bid_edit.s_un_price') %>
       </div>
       <div class="col-2 text-center">
-        Total
+        <%= I18n.translate('bid_edit.s_tt_price') %>
       </div>
     </div>
   <%= f.simple_fields_for :bid_products do |ff|%>
@@ -31,7 +31,7 @@
     <%= ff.input :unit_price, label: false, placeholder: '0.00', as: :string %>
     </div>
     <div class="col-2">
-    <%= "total prices" %>
+    <%= "codar preço total" %>
     </div>
   </div>
   <% end %>
@@ -39,7 +39,7 @@
 
   <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string %>
 
-  <%= f.submit %>
+  <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary' %>
 <% end %>
 </div>
 <%= render 'shared/control_footer' %>
