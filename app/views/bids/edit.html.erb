@@ -1,4 +1,5 @@
-<div class="container">
+<<<<<<< HEAD
+<div class="container bids">
   <div class="m-4 my-5 border rounded-lg shadow p-3 px-5 bg-white d-flex flex-column justify-content-between">
     <h1><%= I18n.translate('bid_edit.s_bid') %></h1>
     <%= simple_form_for [@bid] do |f| %>
@@ -17,6 +18,7 @@
         </div>
       </div>
       <%= f.simple_fields_for :bid_products do |ff|%>
+
 
         <div class="row mx-1 my-3 shadow-sm rounded-lg p-0 bg-white align-items-center">
           <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
