@@ -60,6 +60,7 @@ en:
     quantity: "Quantity"
     add_item: "Add Item"
     post_list: "Post List"
+    sure: "Are you sure you want to create this auction?"
   seller_new:
     register: "Register as a Seller"
     store: "Store name"
@@ -97,3 +98,15 @@ en:
     h_login: "Log In"
     h_become: "Become a"
     h_seller: "SELLER"
+  order_index:
+    o_index: "Orders"
+    o_index: "More details"
+  order_show:
+    o_order_num: "Order Number"
+    o_created: "Date"
+    o_list: "List name / Number"
+    o_seller: "Seller"
+    o_total: "Total Price"
+    o_method: "Payment Method"
+    o_status: "Payment Status"
+    o_thank: "Thank you for your purchase!"

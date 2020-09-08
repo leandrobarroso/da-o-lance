@@ -56,10 +56,11 @@ pt:
     deadline: "Término do leilão:"
     delivery: "Data de entrega:"
     items: "Itens"
-    Item: "Item"
+    item: "Item"
     quantity: "Quantidade"
     add_item: "Adicionar Item"
     post_list: "Salvar Lista"
+    sure: "Você realmente deseja criar este leilão?"
   seller_new:
     register: "Registre-se como um vendedor"
     store: "Noma da loja"
@@ -97,3 +98,18 @@ pt:
     h_login: "Meu login"
     h_become: "Seja um"
     h_seller: "VENDEDOR"
+  orders:
+    o_index: "Pedidos"
+    o_index: "Mais Detalhes"
+  order_show:
+    o_order_num: "Ordem Número"
+    o_index: "Mais detalhes"
+  order_show:
+    o_order_num: "Ordem Número"
+    o_created: "Data"
+    o_list: "Lista / Número"
+    o_seller: "Vendedor"
+    o_total: "Preço Total"
+    o_method: "Método de Pagamento"
+    o_status: "Status do Pagamento"
+    o_thank: "Obrigado por sua compra!"

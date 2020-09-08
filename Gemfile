@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'rails-i18n'
 gem 'i18n'
 gem 'money-rails'
 gem 'stripe'

@@ -13,12 +13,13 @@
       <h2><%= I18n.translate('seller_show.s_my_auctions') %></h2>
       <h4><i class="fas fa-hourglass-half"></i> <%= I18n.translate('seller_show.s_open') %></h4>
       <ul class="list-group">
-        <% if @auctions.select { |auct| auct.deadline > Time.now }.blank? %>
-          <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
+        <% if @auctions_open.blank? %>
+        <!-- Se eu, vendedor, ainda nao criei uma bid para essa auction, ela fica listada aqui -->
+            <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
             <span><%= I18n.translate('seller_show.s_any_open') %></span>
           </li>
-        <% else %>
-          <% @auctions.select { |auct| auct.deadline > Time.now }.each do |auction| %>
+        <% else %> <!-- Se eu, vendedor, já criei uma bid para essa auction, ela não fica listada aqui -->
+          <% @auctions_open.each do |auction| %>
             <li class="list-group-item">
               <div class="row">
                 <span class="col-1"><%= "#{auction.id}" %></span>
@@ -57,7 +58,7 @@
       <ul class="list-group">
         <% if @seller.bids.select { |bd| bd.auction.deadline > Time.now }.blank? %>
           <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
-            <span><%= I18n.translate('seller_show.s_bid_open') %></span>
+            <span><%= I18n.translate('seller_show.s_any_bid_open') %></span>
           </li>
         <% else %>
           <% @seller.bids.select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container">
-  <h1>Orders</h1>
+  <h1><%= I18n.translate('o_index.orders') %></h1>
   <div class="row">
     <% @orders.each do |order| %>
       <div class="col-6 col-md-4">
@@ -9,7 +9,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= order.bid_id %></h5>
             <p class="card-text"><%#= order.category.name %></p>
-            <%= link_to "More details", order_path(order), class: "btn btn-primary" %>
+            <%= link_to I18n.translate('o_index.details'), order_path(order), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
