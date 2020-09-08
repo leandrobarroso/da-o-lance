@@ -30,7 +30,7 @@
     <div class="form-actions d-flex justify-content-around">
       <%= link_to_add_association I18n.translate('auction_new.add_item'), f, :auction_products, class: 'btn btn-secondary',
       data: { association_insertion_node: '.products', association_insertion_method: :append } %>
-      <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-primary' %>
+      <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-primary', data: { confirm: I18n.translate('auction_new.sure') } %>
     </div>
   <% end %>
 </div>
