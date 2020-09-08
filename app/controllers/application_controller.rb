@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  # skip_before_action :set_locale, only: [:set_locale_en, :set_locale_pt]
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :address, :photo])
@@ -21,6 +22,18 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
+
+  def set_locale_en
+    params["locale"] = "en"
+    # cookies.permanent[:da_o_lance_locale] = "en"
+    # redirect_to request.referer || root_url
+  end
+
+  def set_locale_pt
+    params["locale"] = "pt"
+    # cookies.permanent[:da_o_lance_locale] = "pt"
+    # redirect_to request.referer || root_url
+  end
 
   def set_locale
     I18n.locale = params.fetch(:locale, I18n.default_locale).to_sym

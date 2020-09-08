@@ -15,7 +15,7 @@
  <% content_for(:navbar_class, "navbar-home") %>
 <div class="banner">
   <div class="banner-content text-center">
-    <h1> Solicite orçamento e receba os lances</h1>
+    <h1><%= I18n.translate('home.text') %></h1>
     <p>Dá o Lance, traz um novo jeito de fazer suas compras em listas</p>
     <%= link_to "Iniciar",user_root_path, class: "btn btn-lg btn-primary" %>
   </div>
