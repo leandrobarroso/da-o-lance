@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container bids">
   <div class="m-2 p-0 d-flex justify-content-between align-items-center">
     <h2><%= @bid.seller.name %></h2>
-    <span class="h4 text-center">Total: <%= number_to_currency(@bid.total, unit: "R$ ", separator: ",", delimiter: "") %> </span>
+    <span class="h4 text-center value">Total: <%= number_to_currency(@bid.total, unit: "R$ ", separator: ",", delimiter: "") %> </span>
   </div>
 
   <table class="table">
