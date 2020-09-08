@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # get "set_pt/:locale", to:"application#set_locale_pt", as: :set_pt
+  # get "set_en/:locale", to:"application#set_locale_en", as: :set_en
+
   scope '(:locale)', locale: /en|pt/ do
 
     root to: 'pages#home'
