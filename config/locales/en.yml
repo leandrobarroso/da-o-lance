@@ -89,4 +89,11 @@ en:
     s_un_price: "Unit Price"
     s_tt_price: "Total Price"
     s_up_bid: "Update BID"
-
+  home:
+    h_text: "Request quotes and receive bids"
+    h_parag: "Dá o Lance brings a new way of shopping on lists"
+    h_enter: "Enter"
+    h_signup: "Sign Up"
+    h_login: "Log In"
+    h_become: "Become a"
+    h_seller: "SELLER"

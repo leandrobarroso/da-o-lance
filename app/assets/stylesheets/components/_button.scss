@@ -38,3 +38,15 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-language {
+  color: #DCDCDD;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn-language:hover {
+  background: #373737;
+  color: #DCDCDD;
+}
