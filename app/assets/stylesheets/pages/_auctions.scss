@@ -3,13 +3,17 @@
   div h2, p {
     color: #46494C;
   }
-  h1, h3, h4, th {
+  h4, th {
     color: white;
     font-weight: bold;
   }
   label {
-    color: white;
+    color: #46494C;
     font-weight: bold;
   }
+}
+.gray-text {
+  color: #46494C !important;
+  font-family: 'Roboto', sans-serif;
 }
 

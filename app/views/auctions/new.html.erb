@@ -10,14 +10,14 @@
     </div>
 
 
-    <h3><%= I18n.translate('auction_new.items') %></h3>
+    <h3 class="gray-text"><%= I18n.translate('auction_new.items') %></h3>
 
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th class="w-50 text-center"><%= I18n.translate('auction_new.item') %></th>
-          <th class="w-25 text-center"><%= I18n.translate('auction_new.quantity') %></th>
+          <th class="w-50 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
+          <th class="w-25 text-center gray-text"><%= I18n.translate('auction_new.quantity') %></th>
 
         </tr>
       </thead>
@@ -33,5 +33,6 @@
       <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-primary' %>
     </div>
   <% end %>
+  <%= render 'shared/control_footer' %>
 </div>
-<%= render 'shared/control_footer' %>
+
