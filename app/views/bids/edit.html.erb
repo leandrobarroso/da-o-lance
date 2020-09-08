@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container bids">
 <h1><%= I18n.translate('bid_edit.s_bid') %></h1>
 <%= simple_form_for [@bid] do |f| %>
 
-  <div class="row border my-1">
+  <div class="row border my-1 colunas">
       <div class="col-7 text-center">
         <%= I18n.translate('bid_edit.s_product') %>
       </div>
@@ -18,7 +18,7 @@
     </div>
   <%= f.simple_fields_for :bid_products do |ff|%>
 
-  <div class="row bg-white border">
+  <div class="row bg-white border rows">
     <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
     <div class="col-7 d-flex justify-content-start">
       <%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %>
