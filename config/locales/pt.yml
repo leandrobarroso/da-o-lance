@@ -40,7 +40,7 @@ pt:
     any_ended: "Você ainda não possui nenhuma lista encerrada"
     end: "Encerrada em:"
   auction_show:
-    finished: "Finalizado em:"
+    finished: "Término:"
     products: "Produtos"
     quant: "Quantidade"
     descr: "Descrição"
