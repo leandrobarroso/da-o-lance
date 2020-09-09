@@ -43,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initAuctionCable();
   initUserCable();
+  setTimeout(()=> {$(".alert").fadeOut(2000)}, 3000);
 });
 
 import "controllers"
