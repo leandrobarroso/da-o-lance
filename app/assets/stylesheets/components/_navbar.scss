@@ -5,7 +5,7 @@
 }
 
 .navbar {
-  background: transparent;
+
   box-shadow: none;
   position: absolute;
   width: 100%;
@@ -19,6 +19,7 @@
   flex-grow: 0;
 }
 .navbar-home {
+  background: transparent;
   .nav-link {
     color: white !important;
   }
