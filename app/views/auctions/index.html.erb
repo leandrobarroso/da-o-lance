@@ -18,7 +18,7 @@
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.blank? %>
-            <li class="my-1 rounded-lg shadow-sm list-group-item text-center fa-xs">
+            <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
               <span> <%= I18n.translate('auction_index.any_auction') %></span>
             </li>
           <% else %>
