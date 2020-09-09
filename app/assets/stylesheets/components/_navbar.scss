@@ -12,12 +12,15 @@
   font-weight: bold;
 }
 .nav-link {
-  color: white !important;
+  color: #46494C !important;
 }
-
-
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+}
+.navbar-home {
+  .nav-link {
+    color: white !important;
+  }
 }
 
