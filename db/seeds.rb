@@ -95,5 +95,12 @@ AuctionProduct.all.each do |auc_prod|
 end
 puts "done"
 
-
+products = %w[Régua Estojo Lapiseira Cola "Caderno 96 folhas" Lápis Giz "Lápis de Cor" Tesoura "Giz de Cera" Guache Caneta Borracha Etiqueta Mochila "Folha Sulfite" ]
+puts "creating products"
+products.each do |product|
+  Product.create(
+    description: product
+    category: "Material Escolar"
+  )
+end
 puts "done"
