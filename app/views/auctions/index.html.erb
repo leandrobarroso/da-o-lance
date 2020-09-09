@@ -18,7 +18,7 @@
       <div id="auctions-index" data-user-id="<%= current_user.id %>">
         <ul class="list-group">
           <% if @auctions.order(:deadline).select { |auct| auct.deadline > Time.now }.blank? %>
-            <li class="my-1 rounded-lg shadow-sm list-group-item text-center">
+            <li class="my-1 rounded-lg shadow-sm list-group-item text-center fa-xs">
               <span> <%= I18n.translate('auction_index.any_auction') %></span>
             </li>
           <% else %>
@@ -26,7 +26,7 @@
                 <li class="my-1 rounded-lg shadow-sm list-group-item">
                   <div class="row align-items-center">
                     <div class="col">
-                      <h1><%= link_to "#{auction.list_name}", auction_path(auction)%></h1>
+                      <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
                     </div>
                     <div class="col">
                       <%= link_to auction_path(auction) do%>
