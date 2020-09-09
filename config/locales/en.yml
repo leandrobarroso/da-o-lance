@@ -40,7 +40,7 @@ en:
     any_ended: "You don't have any ended auction"
     end: "Ended"
   auction_show:
-    finished: "Finished in:"
+    finished: "Ending:"
     products: "Products"
     quant: "Quantity"
     descr: "Description"

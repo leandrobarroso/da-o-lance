@@ -47,6 +47,17 @@
 }
 
 .btn-language:hover {
-  background: #373737;
+  background: #393939;
   color: #DCDCDD;
+}
+
+.btn-become {
+  background: rgba(33, 33, 33, 0.4);
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn-become:hover {
+  background: rgba(33, 33, 33, 0.7);
 }
