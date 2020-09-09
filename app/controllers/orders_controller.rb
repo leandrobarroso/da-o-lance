@@ -7,13 +7,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    puts "*************************** #{@order.bid.status} ****************"
     authorize @order
   end
 
   def create
     bid = Bid.find(params[:bid_id])
-    bid.change_status
     order = Order.create!(bid: bid, amount: bid.total)
 
     session = Stripe::Checkout::Session.create(
