@@ -31,12 +31,20 @@ end
 puts "done"
 
 puts "creating fake products"
-40.times do |i|
-  product = Product.new(
-    description: Faker::Commerce.product_name,
-    category: Faker::Commerce.department(max: 1)
-    )
-  product.save!
+# 40.times do |i|
+#   product = Product.new(
+#     description: Faker::Commerce.product_name,
+#     category: Faker::Commerce.department(max: 1)
+#     )
+#   product.save!
+# end
+products = ['Régua Estojo', 'Lapiseira', 'Cola', "Caderno 96 folhas", 'Lápis Giz', "Lápis de Cor", 'Tesoura', "Giz de Cera", 'Guache', 'Caneta', 'Borracha', 'Etiqueta', 'Mochila', "Folha Sulfite" ]
+puts "creating products"
+products.each do |product|
+  Product.create(
+    description: product,
+    category: "Material Escolar"
+  )
 end
 puts "done"
 
@@ -95,12 +103,3 @@ AuctionProduct.all.each do |auc_prod|
 end
 puts "done"
 
-products = %w[Régua Estojo Lapiseira Cola "Caderno 96 folhas" Lápis Giz "Lápis de Cor" Tesoura "Giz de Cera" Guache Caneta Borracha Etiqueta Mochila "Folha Sulfite" ]
-puts "creating products"
-products.each do |product|
-  Product.create(
-    description: product
-    category: "Material Escolar"
-  )
-end
-puts "done"
