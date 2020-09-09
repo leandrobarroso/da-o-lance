@@ -1,5 +1,5 @@
 <div class="container col-6 auctions">
-  <h1><%= I18n.translate('auction_new.new_shop') %></h1>
+  <h3><%= I18n.translate('auction_new.new_shop') %></h3>
   <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
     <%= f.error_notification %>
     <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
@@ -10,14 +10,14 @@
     </div>
 
 
-    <h3><%= I18n.translate('auction_new.items') %></h3>
+    <h4 class="gray-text"><%= I18n.translate('auction_new.items') %></h4>
 
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th class="w-50 text-center"><%= I18n.translate('auction_new.item') %></th>
-          <th class="w-25 text-center"><%= I18n.translate('auction_new.quantity') %></th>
+          <th class="w-50 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
+          <th class="w-25 text-center gray-text"><%= I18n.translate('auction_new.quantity') %></th>
 
         </tr>
       </thead>
@@ -33,5 +33,6 @@
       <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-primary', data: { confirm: I18n.translate('auction_new.sure') } %>
     </div>
   <% end %>
+  <%= render 'shared/control_footer' %>
 </div>
-<%= render 'shared/control_footer' %>
+
