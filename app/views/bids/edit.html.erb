@@ -31,7 +31,7 @@
           </div>
           <div class="col-3 d-flex align-items-center">
             <span class="h5">R$ </span>
-            <%= ff.input :unit_price, label: false, placeholder: '0.00', as: :string, input_html: { class: "unit-price", data: {'target' => "product.unitprice", 'action' => 'input->product#totalize'} } %>
+            <%= ff.input :unit_price, label: false, as: :string, input_html: { class: "unit-price", data: {'target' => "product.unitprice", 'action' => 'input->product#totalize'} } %>
           </div>
           <div class="col-2">
             <span data-target="product.subtotal bid.subtotal"><%= @bid.bid_products[ff.index].quantity * @bid.bid_products[ff.index].unit_price %></span>
@@ -40,10 +40,11 @@
       <% end %>
 
       <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string, input_html: {data: {'target' => "bit.total"}} %>
+      <div class="d-flex">
 
+      </div>
       <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary' %>
     <% end %>
-
-</div>
-    <%= render 'shared/control_footer' %>
+  </div>
+  <%= render 'shared/control_footer' %>
 </div>
