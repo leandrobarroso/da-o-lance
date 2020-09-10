@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row justify-content-center mrg-conf-order">
-    <div class="my-4 p-4 bg-white col-xs-12 col-sm-12 col-md-8 col-lg-6 col-sm-offset-4">
+    <div class="my-4 p-4 bg-white col-xs-12 col-sm-12 col-md-9 col-lg-9 col-sm-offset-4 larg-auc-new">
       <div class="col">
         <h3 class="gray-text text-center"><%= I18n.translate('p_new.confirm') %></h3>
         <ul class="list-group">
           <li class="list-group-item">
-              <div class="d-flex justify-content-between">
-                <span><%= I18n.translate('p_new.qtde') %></span>
-                <span><%= I18n.translate('p_new.product') %></span>
-                <span><%= I18n.translate('p_new.un_price') %></span>
-                <span><%= I18n.translate('p_new.total_i') %></span>
+              <div class="row">
+                <span class="col-1 text-left"><%= I18n.translate('p_new.qtde') %></span>
+                <span class="col-6 text-center"><%= I18n.translate('p_new.product') %></span>
+                <span class="col-2 text-center"><%= I18n.translate('p_new.un_price') %></span>
+                <span class="col-2 text-center"><%= I18n.translate('p_new.total_i') %></span>
               </div>
             </li>
           <% @order.bid.bid_products.each do |bid_product| %>
             <li class="list-group-item">
-              <div class="d-flex justify-content-between">
-                <span><%= bid_product.quantity %></span>
-                <span><%= bid_product.product.description %></span>
-                <span><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></span>
-                <span><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></span>
+              <div class="row">
+                <span class="col-1 text-center"><%= bid_product.quantity %></span>
+                <span class="col-6 text-center"><%= bid_product.product.description %></span>
+                <span class="col-2 text-center"><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></span>
+                <span class="col-2 text-center"><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></span>
               </div>
             </li>
           <% end %>
@@ -38,7 +38,7 @@
           </div>
         </div>
 
-        <%= button_tag '<span><i class="fas fa-cash-register"></i> Go to Payment</span>'.html_safe, id: "pay", class: "btn btn-primary" %>
+        <%= button_tag I18n.translate('p_new.g_pay').html_safe, id: "pay", class: "btn btn-primary" %>
 
         <script src="https://js.stripe.com/v3/"></script>
         <script>

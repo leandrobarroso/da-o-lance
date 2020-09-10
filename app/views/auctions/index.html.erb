@@ -31,12 +31,12 @@
                     <div class="col">
                       <%= link_to auction_path(auction) do%>
                         <button type="button" class="w-50 btn btn-primary">
-                          Bids <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
+                          <%= I18n.translate('auction_index.a_bids') %> <span id="bids-counter" data-auction-id="<%= auction.id %>" class="badge badge-light"><%= auction.bids.count %></span>
                         </button>
                       <% end %>
                     </div>
                     <div class="col-12 col-sm-4">
-                      <span>Time left: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
+                      <span><%= I18n.translate('auction_index.t_left') %>: <%= "#{distance_of_time_in_words(Time.now, auction.deadline.to_time)}" %></span>
                     </div>
                   </div>
                 </li>
