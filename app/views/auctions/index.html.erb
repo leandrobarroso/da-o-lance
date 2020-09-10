@@ -1,5 +1,5 @@
 <div class="container col-7 auctions">
-  <div class="m-4 mb-5 rounded-lg shadow p-4 bg-white d-flex justify-content-between align-items-center">
+  <div class="m-4 mb-5 rounded-lg shadow p-4 bg-white d-flex justify-content-between align-items-center div-height">
     <h5><i class="fas fa-file-alt"></i> <%= I18n.translate('auction_index.shop') %> </h5>
     <div class="d-flex flex-column align-items-center">
       <%= link_to '<i class="fas fa-plus-circle fa-xs"></i>'.html_safe, new_auction_path, class: 'display-4' %>
@@ -26,7 +26,7 @@
                 <li class="my-1 rounded-lg shadow-sm list-group-item">
                   <div class="row align-items-center">
                     <div class="col">
-                      <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+                      <h6><%= link_to "#{auction.list_name}", auction_path(auction)%></h6>
                     </div>
                     <div class="col">
                       <%= link_to auction_path(auction) do%>
@@ -58,7 +58,7 @@
                 <li class="my-1 rounded-lg shadow-sm list-group-item">
                   <div class="row align-items-center">
                     <div class="col">
-                      <h5><%= link_to "#{auction.list_name}", auction_path(auction)%></h5>
+                      <h6><%= link_to "#{auction.list_name}", auction_path(auction)%></h6>
                     </div>
                     <div class="col-12 col-sm-4">
                       <span><%= I18n.translate('auction_index.end') %> <%= "#{auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span>
