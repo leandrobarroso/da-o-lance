@@ -5,7 +5,7 @@ const loadDynamicBannerText = () => {
     const sentence = document.getElementById("sentence").innerText;
     new Typed('#typed', {
     strings: [sentence],
-    typeSpeed: 40,
+    typeSpeed: 20,
     loop: false
     });
   }
