@@ -50,6 +50,7 @@ pt:
     descrip: "Descrição"
     un_price: "Preço Unitário"
     tt_price: "Preço Total"
+    buy: "Compre agora"
   auction_new:
     new_shop: "Nova Lista de Compras"
     list_name: "Nome da nova lista:"
@@ -91,8 +92,8 @@ pt:
     s_tt_price: "Preço Total"
     s_up_bid: "Salvar alterações"
   home:
-    h_text: "Solicite orçamentos e receba os lances"
-    h_parag: "Dá o Lance, traz um novo jeito de fazer suas compras em listas"
+    h_text: "Crie suas listas de compras e receba as melhores ofertas em um modelo de leilão."
+    h_parag: "Dá o Lance traz um novo jeito de fazer suas compras."
     h_enter: "Iniciar"
     h_signup: "Inscreva-se"
     h_login: "Meu login"
@@ -113,3 +114,17 @@ pt:
     o_method: "Método de Pagamento"
     o_status: "Status do Pagamento"
     o_thank: "Obrigado por sua compra!"
+  product_new:
+    register: "Novo Produto"
+    description: "Descrição"
+    category: "Categoria"
+    photo: "Enviar foto"
+    create: "Criar Produto"
+    back: "Voltar"
+  product_edit:
+    register: "Editar Produto"
+    description: "Descrição"
+    category: "Categoria"
+    photo: "Enviar foto"
+    create: "Atualizar Produto"
+    back: "Voltar"

@@ -47,4 +47,8 @@ document.addEventListener('turbolinks:load', () => {
   initAuctionCable();
   initUserCable();
   loadDynamicBannerText();
+
+  setTimeout(()=> {$(".alert").fadeOut(2000)}, 3000);
 });
+
+import "controllers"

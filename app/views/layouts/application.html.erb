@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DaOLance</title>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <%= favicon_link_tag asset_path('logo.png') %>
+
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,6 +33,9 @@
     </div>
 
     <%= render 'shared/footer' %>
+    <!-- <script>
+      setTimeout(() => {document.querySelector(".alert" ).classList.remove("show")}, 3000);
+    </script> -->
     </body>
 </html>
 

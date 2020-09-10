@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # get "set_pt/:locale", to:"application#set_locale_pt", as: :set_pt
   # get "set_en/:locale", to:"application#set_locale_en", as: :set_en
 
@@ -8,7 +7,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     devise_for :users
 
-    resources :sellers, only: [:new, :create, :show]
+    resources :sellers, only: [:new, :create, :show, :edit, :update]
 
     resources :bids, only: [:index, :show, :edit, :update]
 
@@ -23,5 +22,7 @@ Rails.application.routes.draw do
     get '/user' => "users#show", :as => :user_root
 
     mount StripeEvent::Engine, at: '/stripe-webhooks'
+
+    resources :products, only: [:new, :create, :edit, :update]
   end
 end
