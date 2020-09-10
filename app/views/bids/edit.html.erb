@@ -23,7 +23,7 @@
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class: "product-avatar" %>
             <% else %>
-              <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "" %>
+              <%= image_tag 'product-pic.png', height: 80, width: 80, crop: :fill, class: "" %>
             <% end %>
           </div>
           <div class="col-4">
