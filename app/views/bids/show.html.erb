@@ -1,51 +1,53 @@
 <div class="container bids">
-  <div class="m-2 p-0 d-flex justify-content-between align-items-center">
-    <h2><%= @bid.seller.name %></h2>
-    <span class="h4 text-center value">Total: <%= number_to_currency(@bid.total, unit: "R$ ", separator: ",", delimiter: "") %> </span>
-  </div>
-
-  <table class="table text-center">
-    <thead>
-    <tr>
-      <th scope="col"><%= I18n.translate('bid_show.qt') %></th>
-      <th scope="col"></th>
-      <th scope="col"><%= I18n.translate('bid_show.descrip') %></th>
-      <th scope="col"><%= I18n.translate('bid_show.un_price') %></th>
-      <th scope="col"><%= I18n.translate('bid_show.tt_price') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bid.bid_products.each do |bid_product| %>
-      <tr>
-        <td><%= bid_product.quantity %></td>
-        <td>
-          <% if bid_product.product.photo.attached? %>
-            <%= cl_image_tag bid_product.product.photo.key, class: "product-avatar" %>
-          <% else %>
-            <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
-          <% end %>
-        </td>
-        <td><%= bid_product.product.description %></td>
-        <td><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></td>
-        <td><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-  <% unless current_user.seller %>
-    <div class="d-flex justify-content-center">
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'bid_id', @bid.id %>
-        <%= button_tag :submit, class: 'btn' do %>
-          <div class="d-flex flex-column align-items-center">
-            <i class="fas fa-shopping-cart h1 text-danger"></i>
-            <span><%= I18n.translate('bid_show.buy') %></span>
-          </div>
-        <% end %>
-      <% end %>
+  <div class="my-4 rounded-lg shadow p-4 bg-white fa-sm">
+    <div class="m-2 p-0 d-flex justify-content-between align-items-center">
+      <h2><%= @bid.seller.name %></h2>
+      <span class="h4 text-center value">Total: <%= number_to_currency(@bid.total, unit: "R$ ", separator: ",", delimiter: "") %> </span>
     </div>
-  <% end %>
 
+    <table class="table text-center">
+      <thead>
+      <tr>
+        <th scope="col"><%= I18n.translate('bid_show.qt') %></th>
+        <th scope="col"></th>
+        <th scope="col"><%= I18n.translate('bid_show.descrip') %></th>
+        <th scope="col"><%= I18n.translate('bid_show.un_price') %></th>
+        <th scope="col"><%= I18n.translate('bid_show.tt_price') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bid.bid_products.each do |bid_product| %>
+        <tr>
+          <td><%= bid_product.quantity %></td>
+          <td>
+            <% if bid_product.product.photo.attached? %>
+              <%= cl_image_tag bid_product.product.photo.key, class: "product-avatar" %>
+            <% else %>
+              <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
+            <% end %>
+          </td>
+          <td><%= bid_product.product.description %></td>
+          <td><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></td>
+          <td><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <% unless current_user.seller %>
+      <div class="d-flex justify-content-center">
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'bid_id', @bid.id %>
+          <%= button_tag :submit, class: 'btn' do %>
+            <div class="d-flex flex-column align-items-center">
+              <i class="fas fa-shopping-cart h1 text-danger"></i>
+              <span><%= I18n.translate('bid_show.buy') %></span>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'shared/control_footer' %>
 </div>
-<%= render 'shared/control_footer' %>
+

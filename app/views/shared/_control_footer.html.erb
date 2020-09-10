@@ -1,9 +1,9 @@
 
 <div class="my-5 d-flex justify-content-around">
-  <%= link_to 'Voltar</i>'.html_safe, :back, class: "btn btn-back" %>
+  <%= link_to I18n.translate('product_new.back').html_safe, :back, class: "btn btn-back" %>
   <% if current_user.seller %>
-    <%= link_to 'Dashboard'.html_safe, seller_path(current_user.seller), class: 'btn btn-dashboard' %>
+    <%= link_to I18n.translate('product_new.dash').html_safe, seller_path(current_user.seller), class: 'btn btn-dashboard' %>
   <% else %>
-    <%= link_to 'Dashboard'.html_safe, auctions_path, class: 'btn btn-dashboard' %>
+    <%= link_to I18n.translate('product_new.dash').html_safe, auctions_path, class: 'btn btn-dashboard' %>
   <% end %>
 </div>

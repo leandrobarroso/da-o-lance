@@ -2,13 +2,13 @@
   <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">
       <div>
         <% if bid.seller.photo.attached? %>
-          <%= cl_image_tag bid.seller.photo.key, class: "m-2 avatar-square-lg" %>
+          <%= cl_image_tag bid.seller.photo.key, height: 80, width: 80, crop: :fill, class: "m-2 avatar-square-lg" %>
         <% else %>
           <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
         <span><%= bid.seller.name %></span>
       </div>
-      <p class="h5"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
-      <span><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></span>
+      <p class="h5 d-flex flex-column justify-content-center align-items-center m-0"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
+      <span class="d-flex flex-column justify-content-center align-items-center"><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid) %></span>
   </div>
 <% end %>

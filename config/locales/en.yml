@@ -118,6 +118,7 @@ en:
     photo: "Upload a photo"
     create: "Create Product"
     back: "Back"
+    dash: "Dashboard"
   product_edit:
     register: "Edit Product"
     description: "Description"
@@ -125,3 +126,12 @@ en:
     photo: "Upload a photo"
     create: "Update Product"
     back: "Back"
+  p_new:
+    confirm: "Confirm order"
+    qtde: "Quant."
+    product: "Product"
+    un_price: "Unit Price"
+    total_i: "Total Item"
+    del_info: "Delivery details"
+    address: "Address"
+    del_date: "Date and time:"
