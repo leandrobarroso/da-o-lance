@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container sellers">
   <div class="row justify-content-center">
     <div class="m-5 p-3 bg-white col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-4">
       <div class="col">
         <h3 class="my-5 text-center"><i class="fas fa-receipt"></i> <%= I18n.translate('order_show.o_order_num') %> <%= @order.id %> <small><span class="badge badge-primary"><%= @order.status %></span></small></h3>
         <ul class="my-5 list-unstyled">
           <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_created') %></strong><span><%= "#{@order.created_at.to_time.strftime("%d/%m/%Y - %H:%M")}" %></span></li>
-          <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_list') %></strong><span><%= @order.bid.auction.list_name %> [<%= @order.bid_id %>]</span></li>
+          <!-- <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_list') %></strong><span><%= @order.bid.auction.list_name %> [<%= @order.bid_id %>]</span></li> -->
           <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_seller') %></strong><span><%= @order.bid.seller.name %></span></li>
           <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_total') %></strong><span><%= humanized_money_with_symbol @order.amount %></span></li>
           <li class="d-flex justify-content-between"><strong><%= I18n.translate('order_show.o_method') %></strong><span>CREDIT CARD</span></li>
