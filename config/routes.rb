@@ -23,6 +23,6 @@ Rails.application.routes.draw do
 
     mount StripeEvent::Engine, at: '/stripe-webhooks'
 
-    resources :products, only: [:new, :create]
+    resources :products, only: [:new, :create, :edit, :update]
   end
 end

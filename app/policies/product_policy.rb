@@ -6,10 +6,18 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def new?
-    true
+    user.admin
   end
 
   def create?
-    true
+    user.admin
+  end
+
+  def edit?
+    user.admin
+  end
+
+  def update?
+    user.admin
   end
 end
