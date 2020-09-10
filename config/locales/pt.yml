@@ -91,8 +91,8 @@ pt:
     s_tt_price: "Preço Total"
     s_up_bid: "Salvar alterações"
   home:
-    h_text: "Solicite orçamentos e receba os lances"
-    h_parag: "Dá o Lance, traz um novo jeito de fazer suas compras em listas"
+    h_text: "Crie suas listas de compras e receba as melhores ofertas em um modelo de leilão."
+    h_parag: "Dá o Lance traz um novo jeito de fazer suas compras."
     h_enter: "Iniciar"
     h_signup: "Inscreva-se"
     h_login: "Meu login"
