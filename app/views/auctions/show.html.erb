@@ -22,7 +22,7 @@
               <% if auction_product.product.photo.attached? %>
                 <%= cl_image_tag auction_product.product.photo.key, class: "product-avatar" %>
               <% else %>
-                <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
+                <%= image_tag 'product-pic.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
               <% end %>
             </td>
             <td><%= auction_product.product.description %></td>
