@@ -1,4 +1,3 @@
-
 <div class="container bids">
   <div class="m-4 my-5 border rounded-lg shadow p-3 px-5 bg-white d-flex flex-column justify-content-between" data-controller="bid">
     <h1><%= I18n.translate('bid_edit.s_bid') %></h1>
@@ -18,12 +17,16 @@
         </div>
       </div>
       <%= f.simple_fields_for :bid_products do |ff|%>
-
-
         <div class="row mx-1 my-3 shadow-sm rounded-lg p-0 bg-white align-items-center" data-controller="product">
           <% product = Product.find(@bid.bid_products[ff.index].product_id) %>
-          <div class="col-6 p-0 d-flex justify-content-start align-items-center">
-            <%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "m-0" %>
+          <div class="col-1 p-1">
+            <% if product.photo.attached? %>
+              <%= cl_image_tag product.photo.key, class: "product-avatar" %>
+            <% else %>
+              <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "" %>
+            <% end %>
+          </div>
+          <div class="col-4">
             <span class="m-2 h5"><%= product.description  %></span>
           </div>
           <div class="col-1 h5 text-center" data>
