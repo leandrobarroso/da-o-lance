@@ -4,11 +4,11 @@
 
     <p><%= I18n.translate('auction_show.finished') %> <%= "#{@auction.deadline.to_time.strftime("%d/%m/%Y - %H:%M")}" %> </p>
 
-    <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
-      <h4 class="gray-text"><%= I18n.translate('auction_show.products') %></h4>
-      <table class="table">
+    <div class="my-4 rounded-lg shadow-sm p-4 bg-light justify-content-between">
+      <h4 class="gray-text text-center"><%= I18n.translate('auction_show.products') %></h4>
+      <table class="table text-center">
         <thead>
-        <tr>
+        <tr valign="middle">
           <th class="gray-text" scope="col"><%= I18n.translate('auction_show.quant') %></th>
           <th class="gray-text" scope="col"></th>
           <th class="gray-text" scope="col"><%= I18n.translate('auction_show.descr') %></th>
@@ -16,9 +16,9 @@
       </thead>
       <tbody>
         <% @auction.auction_products.each do |auction_product| %>
-          <tr>
+          <tr valign="middle">
             <td><%= auction_product.quantity %></td>
-            <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "" %></td>
+            <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "rounded" %></td>
             <td><%= auction_product.product.description %></td>
           </tr>
         <% end %>
@@ -33,14 +33,14 @@
           <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">
               <div>
                 <% if bid.seller.photo.attached? %>
-                  <%= cl_image_tag bid.seller.photo.key, class: "m-2 avatar-square-lg" %>
+                  <%= cl_image_tag bid.seller.photo.key, height: 50, width: 80, crop: :fill, class: "m-2 avatar-square-lg" %>
                 <% else %>
                   <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
                 <span><%= bid.seller.name %></span>
               </div>
-              <p class="h5"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
-              <span><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid), class: 'col-1' %></span>
+              <p class="h5 d-flex flex-column justify-content-center align-items-center m-0"><%= number_to_currency(bid.total, unit: "R$ ", separator: ",", delimiter: "") %></p>
+              <span class="d-flex flex-column justify-content-center align-items-center"><%= link_to '<i class="fas fa-search"></i>'.html_safe, bid_path(bid) %></span>
           </div>
         <% end %>
       </div>
