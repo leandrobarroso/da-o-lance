@@ -5,18 +5,24 @@
 }
 
 .navbar {
-  background: transparent;
+  height: 80px;
   box-shadow: none;
   position: absolute;
   width: 100%;
   font-weight: bold;
 }
+
 .nav-link {
-  color: white !important;
+  color: #46494C !important;
 }
-
-
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
+.navbar-home {
+  background: transparent;
+  .nav-link {
+    color: white !important;
+  }
+}
+

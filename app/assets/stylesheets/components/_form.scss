@@ -1,7 +1,7 @@
 .form-login {
   background: white;
   padding: 10px 20px;
-  margin-top: 50px;
+  margin-top: 100px;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   h2 {
@@ -26,4 +26,11 @@
   p {
     color: white;
   }
+}
+
+.unit-price {
+  border: none;
+  background-image: none!important;
+  text-align: center;
+  font-size: 1.5em;
 }

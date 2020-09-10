@@ -40,7 +40,7 @@ en:
     any_ended: "You don't have any ended auction"
     end: "Ended"
   auction_show:
-    finished: "Finished in:"
+    finished: "Ending:"
     products: "Products"
     quant: "Quantity"
     descr: "Description"
@@ -50,6 +50,7 @@ en:
     descrip: "Description"
     un_price: "Unit Price"
     tt_price: "Total Price"
+    buy: "Buy Now"
   auction_new:
     new_shop: "New Shop List"
     list_name: "New list name:"
@@ -60,6 +61,7 @@ en:
     quantity: "Quantity"
     add_item: "Add Item"
     post_list: "Post List"
+    sure: "Are you sure you want to create this auction?"
   seller_new:
     register: "Register as a Seller"
     store: "Store name"
@@ -89,3 +91,37 @@ en:
     s_un_price: "Unit Price"
     s_tt_price: "Total Price"
     s_up_bid: "Update BID"
+  home:
+    h_text: "Request quotes and receive bids"
+    h_parag: "Dá o Lance brings a new way of shopping on lists"
+    h_enter: "Enter"
+    h_signup: "Sign Up"
+    h_login: "Log In"
+    h_become: "Become a"
+    h_seller: "SELLER"
+  order_index:
+    o_index: "Orders"
+    o_index: "More details"
+  order_show:
+    o_order_num: "Order Number"
+    o_created: "Date"
+    o_list: "List name / Number"
+    o_seller: "Seller"
+    o_total: "Total Price"
+    o_method: "Payment Method"
+    o_status: "Payment Status"
+    o_thank: "Thank you for your purchase!"
+  product_new:
+    register: "New Product"
+    description: "Description"
+    category: "Category"
+    photo: "Upload a photo"
+    create: "Create Product"
+    back: "Back"
+  product_edit:
+    register: "Edit Product"
+    description: "Description"
+    category: "Category"
+    photo: "Upload a photo"
+    create: "Update Product"
+    back: "Back"

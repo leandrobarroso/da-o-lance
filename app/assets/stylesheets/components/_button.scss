@@ -6,6 +6,7 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  margin-top: 100px;
 }
 
 .btn-ghost:hover {
@@ -36,5 +37,84 @@
 
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+
+.btn-language {
+  color: #DCDCDD;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn-language:hover {
+  background: #393939;
+  color: #DCDCDD;
+}
+
+.btn-become {
+  background: rgba(33, 33, 33, 0.4);
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn-become:hover {
+  background: rgba(33, 33, 33, 0.7);
+}
+
+.btn-back {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #ff9f1c;
+  transition: background 0.3s ease;
+}
+
+.btn-back:hover {
+  background: rgba(255, 159, 28, 0.8);
+  color: white;
+}
+
+.btn-dashboard {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #e71d36;
+  transition: background 0.3s ease;
+}
+
+.btn-dashboard:hover {
+  background: rgba( 231, 29, 54, 0.8);
+  color: white;
+}
+
+.btn-post-list {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background-color: #4FC3CB;
+  transition: background 0.3s ease;
+}
+
+.btn-post-list:hover {
+  background: rgba( 79, 195, 203, 0.8);
+  color: white;
+}
+
+.btn-add-item {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #afaeae;
+  transition: background 0.3s ease;
+}
+
+.btn-add-item:hover {
+  background: rgba(   233, 236, 239, 0.8);
   color: white;
 }

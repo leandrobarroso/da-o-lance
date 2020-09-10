@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png", height: 90, width: 90, crop: :fill %>
+    <%= image_tag "logo.png", height: 100, width: 100, crop: :fill %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +12,17 @@
       <% if user_signed_in? %>
         <li class="m-3 nav-item dropdown">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, height: 55, width: 55, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag 'user-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "User Profile", edit_user_registration_path, class: "dropdown-item" %>
+            <% if current_user.seller %>
+              <%= link_to "Seller Profile", edit_seller_path(current_user.seller), class: "dropdown-item" %>
+            <% end %>
+
+
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -27,8 +31,19 @@
         <li class="nav-item">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex mx-5">
-              <%= link_to 'Sign Up'.html_safe, new_user_registration_path, class: 'nav-link mx-3 btn-flat' %>
-              <%= link_to 'Log In'.html_safe, new_user_session_path, class: 'nav-link mx-3 btn-flat' %>
+              <%= link_to I18n.translate('home.h_signup').html_safe, new_user_registration_path, class: 'nav-link mx-3' %>
+              <%= link_to I18n.translate('home.h_login').html_safe, new_user_session_path, class: 'nav-link mx-3' %>
+            </div>
+            <div class="d-flex mx-1">
+
+
+
+              <%= link_to root_path(locale: "en"), class: 'nav-link btn-language' do %>
+                <%= image_tag "united-kingdom.png", height: 20, width: 20 %>
+              <% end %>
+              <%= link_to root_path(locale: "pt"), class: 'nav-link btn-language mr-3' do %>
+                <%= image_tag "brazil-flag.png", height: 20, width: 20 %>
+              <% end %>
             </div>
             <%= render 'shared/become_seller_btn' %>
           </div>

@@ -1,14 +1,17 @@
 .bids {
-  padding-top: 100px;
-  div h2, h3, h4, th, p {
+  padding-top: 150px;
+  div h3, p {
     color: #46494C;
   }
-  h1 {
-    color: white;
+  h1, h2, {
+    color: #46494C;
     font-weight: bold;
   }
-  .colunas {
-    color: white;
+  .value {
+    color: #46494C;
+  }
+  .table {
+    color: #46494C;
     padding: 10px;
   }
   .rows {

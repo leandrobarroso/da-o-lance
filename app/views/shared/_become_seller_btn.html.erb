@@ -1,6 +1,8 @@
-<%= link_to new_seller_path, class: 'btn-flat nav-link' do%>
+
+<%= link_to new_seller_path, class: 'nav-link' do%>
+
   <div class="px-2 d-flex flex-column align-items-center">
-    <span>Become a</span>
-    <span><strong>SELLER</strong> <i class="fas fa-store"></i></span>
+    <span><%= I18n.translate('home.h_become')%></span>
+    <span><strong><%= I18n.translate('home.h_seller') %></strong> <i class="fas fa-store"></i></span>
   </div>
 <% end %>

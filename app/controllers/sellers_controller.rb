@@ -3,13 +3,15 @@ class SellersController < ApplicationController
     @seller = current_user.seller
     @auctions = Auction.all
     authorize @seller
+    @auctions_open = @auctions.select { |auct| auct.deadline > Time.now }
+                              .select { |auct| auct.bids.where(seller: @seller).count.zero? }
   end
 
   def new
     if current_user.seller
       redirect_to seller_path(current_user.seller)
     else
-    @seller = Seller.new
+      @seller = Seller.new
     end
     authorize @seller
   end
@@ -24,6 +26,21 @@ class SellersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @seller = Seller.find(params[:id])
+    authorize @seller
+  end
+
+  def update
+    @seller = Seller.find(params[:id])
+    if @seller.update(seller_params)
+      redirect_to @seller, notice: 'seller was successfully updated.'
+    else
+      render :edit
+    end
+    authorize @seller
   end
 
   private
