@@ -18,7 +18,13 @@
     <% @bid.bid_products.each do |bid_product| %>
       <tr>
         <td><%= bid_product.quantity %></td>
-        <td><%= image_tag Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3), height: 75, width: 75, crop: :fill, class: "" %></td>
+        <td>
+          <% if bid_product.product.photo.attached? %>
+            <%= cl_image_tag bid_product.product.photo.key, class: "product-avatar" %>
+          <% else %>
+            <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
+          <% end %>
+        </td>
         <td><%= bid_product.product.description %></td>
         <td><%= number_to_currency(bid_product.unit_price, unit: "R$ ", separator: ",", delimiter: "") %></td>
         <td><%= number_to_currency(bid_product.unit_price * bid_product.quantity, unit: "R$ ", separator: ",", delimiter: "") %></td>

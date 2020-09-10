@@ -115,8 +115,15 @@ pt:
     o_thank: "Obrigado por sua compra!"
   product_new:
     register: "Novo Produto"
-    description: "Descrião"
+    description: "Descrição"
     category: "Categoria"
     photo: "Enviar foto"
     create: "Criar Produto"
+    back: "Voltar"
+  product_edit:
+    register: "Editar Produto"
+    description: "Descrição"
+    category: "Categoria"
+    photo: "Enviar foto"
+    create: "Atualizar Produto"
     back: "Voltar"

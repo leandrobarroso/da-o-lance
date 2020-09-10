@@ -117,3 +117,10 @@ en:
     photo: "Upload a photo"
     create: "Create Product"
     back: "Back"
+  product_edit:
+    register: "Edit Product"
+    description: "Description"
+    category: "Category"
+    photo: "Upload a photo"
+    create: "Update Product"
+    back: "Back"

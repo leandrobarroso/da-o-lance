@@ -18,7 +18,13 @@
         <% @auction.auction_products.each do |auction_product| %>
           <tr valign="middle">
             <td><%= auction_product.quantity %></td>
-            <td><%= image_tag (Faker::LoremPixel.image(size: "75x75", is_gray: false, category: 'technics', number: 3)), height: 75, width: 75, crop: :fill, class: "rounded" %></td>
+            <td>
+              <% if auction_product.product.photo.attached? %>
+                <%= cl_image_tag auction_product.product.photo.key, class: "product-avatar" %>
+              <% else %>
+                <%= image_tag 'logo.png', height: 80, width: 80, crop: :fill, class: "avatar-square-lg" %>
+              <% end %>
+            </td>
             <td><%= auction_product.product.description %></td>
           </tr>
         <% end %>
@@ -33,7 +39,7 @@
           <div class="bid-container my-1 rounded-lg shadow-sm list-group-item d-flex justify-content-between" id="bid-<%= bid.id %>">
               <div>
                 <% if bid.seller.photo.attached? %>
-                  <%= cl_image_tag bid.seller.photo.key, height: 50, width: 80, crop: :fill, class: "m-2 avatar-square-lg" %>
+                  <%= cl_image_tag bid.seller.photo.key, height: 80, width: 80, crop: :fill, class: "m-2 avatar-square-lg" %>
                 <% else %>
                   <%= image_tag 'seller-default.png', class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
