@@ -12,11 +12,15 @@
       </div>
     </div>
  -->
- <% content_for(:navbar_class, "navbar-home") %>
-<div class="banner">
-  <div class="banner-content text-center">
-    <h1><%= I18n.translate('home.h_text') %></h1>
-    <p><%= I18n.translate('home.h_parag') %></p>
-    <%= link_to I18n.translate('home.h_enter'),user_root_path, class: "btn btn-lg btn-primary" %>
+
+  <% content_for(:navbar_class, "navbar-home") %>
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1 id="typed"></h1>
+      <!-- <p><%= I18n.translate('home.h_parag') %></p> -->
+      <%= link_to I18n.translate('home.h_enter'),user_root_path, class: "btn btn-lg btn-primary" %>
+    </div>
   </div>
-</div>
+
+
+
