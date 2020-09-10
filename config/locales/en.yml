@@ -39,6 +39,8 @@ en:
     any_auction: "You don't have any open auction"
     any_ended: "You don't have any ended auction"
     end: "Ended"
+    t_left: "Time left"
+    a_bids: "Bids"
   auction_show:
     finished: "Ending:"
     products: "Products"
@@ -92,8 +94,8 @@ en:
     s_tt_price: "Total Price"
     s_up_bid: "Update BID"
   home:
-    h_text: "Request quotes and receive bids"
-    h_parag: "Dá o Lance brings a new way of shopping on lists"
+    h_text: "Create your shopping lists, get the best deals and buy at the lowest price."
+    h_parag: "The best sellers in your region are waiting for your list to launch offers for your auction. Sign up now!"
     h_enter: "Enter"
     h_signup: "Sign Up"
     h_login: "Log In"
@@ -137,3 +139,4 @@ en:
     del_info: "Delivery details"
     address: "Address"
     del_date: "Date and time:"
+    g_pay: "Go to Payment"

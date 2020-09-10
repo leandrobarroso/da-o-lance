@@ -39,6 +39,8 @@ pt:
     any_auction: "Você ainda não criou nenhuma lista"
     any_ended: "Você ainda não possui nenhuma lista encerrada"
     end: "Encerrada em:"
+    t_left: "Tempo restante"
+    a_bids: "Lances"
   auction_show:
     finished: "Término:"
     products: "Produtos"
@@ -92,8 +94,8 @@ pt:
     s_tt_price: "Preço Total"
     s_up_bid: "Salvar alterações"
   home:
-    h_text: "Crie suas listas de compras e receba as melhores ofertas em um modelo de leilão."
-    h_parag: "Dá o Lance traz um novo jeito de fazer suas compras."
+    h_text: "Crie suas listas de compras, ^600 receba as melhores ofertas ^600 e compre pelo menor preço."
+    h_parag: "Os melhores vendedores de sua região estão aguardando sua lista para dar o lance no seu leilão. Cadastre-se agora mesmo!"
     h_enter: "Iniciar"
     h_signup: "Inscreva-se"
     h_login: "Meu login"
@@ -140,4 +142,4 @@ pt:
     del_info: "Detalhes da entrega"
     address: "Endereço"
     del_date: "Data e hora:"
-  registration_edit:
+    g_pay: "Ir para pagamento"
