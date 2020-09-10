@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     devise_for :users
 
-    resources :sellers, only: [:new, :create, :show]
+    resources :sellers, only: [:new, :create, :show, :edit, :update]
 
     resources :bids, only: [:index, :show, :edit, :update]
 
