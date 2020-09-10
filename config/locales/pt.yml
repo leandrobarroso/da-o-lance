@@ -114,6 +114,8 @@ pt:
     o_method: "Método de Pagamento"
     o_status: "Status do Pagamento"
     o_thank: "Obrigado por sua compra!"
+    o_credit: "CARTÃO DE CRÉDITO"
+    o_confirmed: "CONFIRMADO"
   product_new:
     register: "Novo Produto"
     description: "Descrição"
@@ -138,3 +140,4 @@ pt:
     del_info: "Detalhes da entrega"
     address: "Endereço"
     del_date: "Data e hora:"
+  registration_edit:
