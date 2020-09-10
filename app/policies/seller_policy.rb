@@ -16,4 +16,13 @@ class SellerPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    print record
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
 end
