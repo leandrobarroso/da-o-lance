@@ -50,6 +50,7 @@ en:
     descrip: "Description"
     un_price: "Unit Price"
     tt_price: "Total Price"
+    buy: "Buy Now"
   auction_new:
     new_shop: "New Shop List"
     list_name: "New list name:"
