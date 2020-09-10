@@ -143,3 +143,13 @@ pt:
     address: "Endereço"
     del_date: "Data e hora:"
     g_pay: "Ir para pagamento"
+  registrations:
+    r_sign: "Sign Up"
+    r_pass: "Password"
+    r_charac: "characters minimum"
+    r_conf_pass: "Password confirmation"
+    r_fn: "First name"
+    r_ln: "Last name"
+    r_address: "Address"
+    r_photo: "Upload a photo"
+    r_sub_sign: "Sign Up"

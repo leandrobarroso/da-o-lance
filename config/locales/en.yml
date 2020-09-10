@@ -94,7 +94,7 @@ en:
     s_tt_price: "Total Price"
     s_up_bid: "Update BID"
   home:
-    h_text: "Create your shopping lists, get the best deals and buy at the lowest price."
+    h_text: "Create your shopping lists, ^600 get the best deals ^600 and buy at the lowest price."
     h_parag: "The best sellers in your region are waiting for your list to launch offers for your auction. Sign up now!"
     h_enter: "Enter"
     h_signup: "Sign Up"
@@ -140,3 +140,13 @@ en:
     address: "Address"
     del_date: "Date and time:"
     g_pay: "Go to Payment"
+  registrations:
+    r_sign: "Sign Up"
+    r_pass: "Password"
+    r_charac: "characters minimum"
+    r_conf_pass: "Password confirmation"
+    r_fn: "First name"
+    r_ln: "Last name"
+    r_address: "Address"
+    r_photo: "Upload a photo"
+    r_sub_sign: "Sign Up"
