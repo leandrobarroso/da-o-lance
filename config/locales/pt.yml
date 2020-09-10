@@ -113,3 +113,10 @@ pt:
     o_method: "Método de Pagamento"
     o_status: "Status do Pagamento"
     o_thank: "Obrigado por sua compra!"
+  product_new:
+    register: "Novo Produto"
+    description: "Descrião"
+    category: "Categoria"
+    photo: "Enviar foto"
+    create: "Criar Produto"
+    back: "Voltar"

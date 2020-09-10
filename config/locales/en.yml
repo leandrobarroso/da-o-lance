@@ -110,3 +110,10 @@ en:
     o_method: "Payment Method"
     o_status: "Payment Status"
     o_thank: "Thank you for your purchase!"
+  product_new:
+    register: "New Product"
+    description: "Description"
+    category: "Category"
+    photo: "Upload a photo"
+    create: "Create Product"
+    back: "Back"
