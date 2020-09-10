@@ -32,6 +32,6 @@ class AuctionsController < ApplicationController
   def auction_params
     params
       .require(:auction)
-      .permit(:list_name, :deadline, :status, auction_products_attributes: AuctionProduct.attribute_names.map(&:to_sym).push(:_destroy))
+      .permit(:delivery_time, :list_name, :deadline, :status, auction_products_attributes: AuctionProduct.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end

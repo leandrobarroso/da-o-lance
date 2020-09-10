@@ -121,6 +121,7 @@ pt:
     photo: "Enviar foto"
     create: "Criar Produto"
     back: "Voltar"
+    dash: "Painel"
   product_edit:
     register: "Editar Produto"
     description: "Descrição"
@@ -128,3 +129,12 @@ pt:
     photo: "Enviar foto"
     create: "Atualizar Produto"
     back: "Voltar"
+  p_new:
+    confirm: "Confirmação do Pedido"
+    qtde: "Quant."
+    product: "Produto"
+    un_price: "Preço Un."
+    total_i: "Total Item"
+    del_info: "Detalhes da entrega"
+    address: "Endereço"
+    del_date: "Data e hora:"
