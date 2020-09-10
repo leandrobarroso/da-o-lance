@@ -27,6 +27,8 @@ class OrdersController < ApplicationController
     )
 
     order.update(checkout_session_id: session.id)
+    bid.status = true
+    bid.save
     redirect_to new_order_payment_path(order)
     authorize Order
   end

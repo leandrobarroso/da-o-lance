@@ -3,7 +3,8 @@ class SellersController < ApplicationController
     @seller = current_user.seller
     @auctions = Auction.all
     authorize @seller
-    @auctions_open = @auctions.select { |auct| auct.deadline > Time.now }
+    @auctions_open = @auctions.order(id: :desc)
+                              .select { |auct| auct.deadline > Time.now }
                               .select { |auct| auct.bids.where(seller: @seller).count.zero? }
   end
 

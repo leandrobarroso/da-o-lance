@@ -113,6 +113,8 @@ en:
     o_method: "Payment Method"
     o_status: "Payment Status"
     o_thank: "Thank you for your purchase!"
+    o_credit: "CREDIT CARD"
+    o_confirmed: "CONFIRMED"
   product_new:
     register: "New Product"
     description: "Description"
