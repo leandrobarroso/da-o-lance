@@ -38,7 +38,7 @@
             <span><%= I18n.translate('seller_show.s_any_ended') %></span>
           </li>
         <% else %>
-          <% @auctions.select { |auct| auct.deadline <= Time.now }.each do |auction| %>
+          <% @auctions.order(id: :desc).select { |auct| auct.deadline <= Time.now }.each do |auction| %>
             <li class="list-group-item">
               <div class="row">
                 <span class="col-1"><%= "#{auction.id}" %></span>
@@ -61,7 +61,7 @@
             <span><%= I18n.translate('seller_show.s_any_bid_open') %></span>
           </li>
         <% else %>
-          <% @seller.bids.select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>
+          <% @seller.bids.order(id: :desc).select { |bd| bd.auction.deadline > Time.now }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
@@ -83,7 +83,7 @@
             <span><%= I18n.translate('seller_show.s_any_bid_won') %></span>
           </li>
         <% else %>
-          <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status }.each do |bid| %>
+          <% @seller.bids.order(id: :desc).select { |bd| bd.auction.deadline < Time.now && bd.status }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
@@ -104,7 +104,7 @@
             <span><%= I18n.translate('seller_show.s_any_bid_lost') %></span>
           </li>
         <% else %>
-          <% @seller.bids.select { |bd| bd.auction.deadline < Time.now && bd.status == false }.each do |bid| %>
+          <% @seller.bids.order(id: :desc).select { |bd| bd.auction.deadline < Time.now && bd.status == false }.each do |bid| %>
           <li class="list-group-item">
           <div class="row">
             <span class="col-1"><%= "#{bid.id}" %></span>
