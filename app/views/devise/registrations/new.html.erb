@@ -31,7 +31,7 @@
                         label: I18n.translate('registrations.r_address'),
                         required: true,
                         input_html: { autocomplete: "address" }%>
-            <%= f.input :photo, label: I18n.translate('registrations.r_photo'), input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'%>
+            <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: I18n.translate('registrations.r_photo') %>
           </div>
           <div class="form-actions">
             <%= f.button :submit, I18n.translate('registrations.r_sub_sign'), class: 'btn btn-primary' %>
