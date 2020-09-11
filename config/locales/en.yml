@@ -150,3 +150,9 @@ en:
     r_address: "Address"
     r_photo: "Upload a photo"
     r_sub_sign: "Sign Up"
+  sessions:
+    s_log_in: "Log in"
+    s_email: "E-mail"
+    s_pass: "Password"
+    s_remember: "Remember me"
+    s_log_btn: "Enter"

@@ -153,3 +153,9 @@ pt:
     r_address: "Endereço"
     r_photo: "Carregar foto"
     r_sub_sign: "Salvar cadastro"
+  sessions:
+    s_log_in: "Acesse sua conta"
+    s_email: "E-mail"
+    s_pass: "Senha"
+    s_remember: "Lembrar minha senha"
+    s_log_btn: "Entrar"
