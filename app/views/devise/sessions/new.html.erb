@@ -17,7 +17,7 @@
             <%= f.input :remember_me, label: I18n.translate('sessions.s_remember'), as: :boolean if devise_mapping.rememberable? %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit, label: I18n.translate('sessions.s_log_btn'), class: 'btn btn-primary' %>
+            <%= f.button :submit, value: I18n.translate('sessions.s_log_btn'), class: 'btn btn-primary' %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
