@@ -29,7 +29,9 @@
         <div class="my-3 border p-2">
           <h4><%= I18n.translate('p_new.del_info') %></h4>
           <p class="text-left"><%= I18n.translate('p_new.del_date') %>
-            <%= @order.bid.auction.delivery_time.to_time.strftime("%d/%m/%Y - %H:%M")%>
+            <% if @order.bid.auction.delivery_time %>
+              <%= @order.bid.auction.delivery_time.to_time.strftime("%d/%m/%Y - %H:%M")%>
+            <% end %>
           </p>
           <div>
             <p class="text-left">

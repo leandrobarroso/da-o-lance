@@ -26,27 +26,30 @@
               <%= image_tag 'product-pic.png', height: 80, width: 80, crop: :fill, class: "" %>
             <% end %>
           </div>
-          <div class="col-4">
+          <div class="col-5">
             <span class="m-2 h5"><%= product.description  %></span>
           </div>
           <div class="col-1 h5 text-center" data>
             <span data-target="product.quantity"><%= @bid.bid_products[ff.index].quantity %></span>
           </div>
           <div class="col-3 d-flex align-items-center">
-            <span class="h5">R$ </span>
-            <%= ff.input :unit_price, label: false, as: :string, input_html: { class: "unit-price", data: {'target' => "product.unitprice", 'action' => 'input->product#totalize'} } %>
+            <span class="h5 m-0 mr-1">R$ </span>
+            <%= ff.input :unit_price, label: false, as: :string, input_html: { class: "unit-price text-right", data: {'target' => "product.unitprice", 'action' => 'input->product#totalize input->bid#totalize'} } %>
           </div>
           <div class="col-2">
-            <span data-target="product.subtotal bid.subtotal"><%= @bid.bid_products[ff.index].quantity * @bid.bid_products[ff.index].unit_price %></span>
+            <span class="h5 m-0 mr-1">R$ </span>
+            <span class="h3 text-right" data-target="product.subtotal bid.subtotal"><%= @bid.bid_products[ff.index].quantity * @bid.bid_products[ff.index].unit_price %></span>
           </div>
         </div>
       <% end %>
 
-      <%= f.input :total, disabled: true, id: 'bid-total', placeholder: '0.00', as: :string, input_html: {data: {'target' => "bit.total"}} %>
-      <div class="d-flex">
-
+      <div class="py-5 d-flex justify-content-between">
+        <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary btn-lg' %>
+        <div class="px-5 bg-light d-flex align-items-center justify-content-center">
+          <span class="h5 m-0 mr-1">R$ </span>
+          <span class="h2 m-0" data-target="bid.total"><%= @bid.total %></span>
+        </div>
       </div>
-      <%= f.button :submit, value:I18n.translate('bid_edit.s_up_bid'), class: 'btn btn-primary' %>
     <% end %>
   </div>
   <%= render 'shared/control_footer' %>
