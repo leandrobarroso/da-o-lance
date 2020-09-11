@@ -1,10 +1,9 @@
-<div class="container col-6 auctions">
+<div class="container col-8 auctions">
   <div class="my-5 rounded-lg shadow p-4 bg-white fa-sm">
-    <h3 class="text-center mb-3"><%= I18n.translate('auction_new.new_shop') %></h3>
-    <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
-
+      <h3 class="text-center mb-3"><%= I18n.translate('auction_new.new_shop') %></h3>
+      <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
       <div class="d-flex justify-content-between align-items-end datetimepicker">
         <%= f.input :deadline, label: I18n.translate('auction_new.deadline'), as: :string, input_html: {id: "deadline_input"} %>
         <%= f.input :delivery_time, label: I18n.translate('auction_new.delivery'), as: :string, input_html: {id: "delivery_time_input"} %>
@@ -19,8 +18,8 @@
         <thead>
           <tr>
             <th></th>
-            <th class="w-50 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
-            <th class="w-25 text-center gray-text"><%= I18n.translate('auction_new.quantity') %></th>
+            <th class="w-100 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
+            <th class="w-25 text-center gray-text" ><%= I18n.translate('auction_new.quantity') %></th>
 
           </tr>
         </thead>
