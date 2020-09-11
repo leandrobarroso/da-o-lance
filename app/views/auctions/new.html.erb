@@ -3,38 +3,52 @@
       <h3 class="text-center mb-3"><%= I18n.translate('auction_new.new_shop') %></h3>
       <%= simple_form_for @auction, input_html: {id: "new_auction"} do |f| %>
         <%= f.error_notification %>
-        <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
-      <div class="d-flex justify-content-between align-items-end datetimepicker">
-        <%= f.input :deadline, label: I18n.translate('auction_new.deadline'), as: :string, input_html: {id: "deadline_input"} %>
-        <%= f.input :delivery_time, label: I18n.translate('auction_new.delivery'), as: :string, input_html: {id: "delivery_time_input"} %>
+        <div class="my-4 rounded-lg shadow-sm pb-4 pt-1 pl-4 pr-4 bg-light">
+          <h5 class="text-center mt-4"><%= I18n.translate('auction_new.des_cat') %></h5>
+          <div class="d-flex justify-content-around mt-4">
+              <%= simple_fields_for :other do |o| %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.auto') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.baby') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.beauty') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.elect') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.fashion') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.games') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.home') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.super') %>
+              <%= o.input :change_password, as: :boolean, label: I18n.translate('auction_new.station') %>
+            <% end %>
+          </div>
+        </div>
+        <div class="my-4 rounded-lg shadow-sm p-4 bg-light">
+          <%= f.input :list_name, label: I18n.translate('auction_new.list_name') %>
+          <div class="d-flex justify-content-between align-items-end datetimepicker mt-4">
+            <%= f.input :deadline, label: I18n.translate('auction_new.deadline'), as: :string, input_html: {id: "deadline_input"} %>
+            <%= f.input :delivery_time, label: I18n.translate('auction_new.delivery'), as: :string, input_html: {id: "delivery_time_input"} %>
+          </div>
+        </div>
+        <div class="my-4 rounded-lg shadow-sm p-4 bg-light text-center">
+          <h5><%= I18n.translate('auction_new.items') %></h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="w-100 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
+                <th class="w-25 text-center gray-text" ><%= I18n.translate('auction_new.quantity') %></th>
+
+              </tr>
+            </thead>
+            <tbody class="products">
+              <%= f.simple_fields_for :auction_products do |auction_product| %>
+                <%= render 'auction_product_fields', :f => auction_product  %>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="form-actions d-flex justify-content-around">
+            <%= link_to_add_association I18n.translate('auction_new.add_item'), f, :auction_products, class: "add-item-link",
+            data: { association_insertion_node: '.products', association_insertion_method: :append } %>
+            <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-post-list', data: { confirm: I18n.translate('auction_new.sure') } %>
+          </div>
+      <% end %>
       </div>
-
-
-
-      <h4 class="gray-text"><%= I18n.translate('auction_new.items') %></h4>
-
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="w-100 text-center gray-text"><%= I18n.translate('auction_new.item') %></th>
-            <th class="w-25 text-center gray-text" ><%= I18n.translate('auction_new.quantity') %></th>
-
-          </tr>
-        </thead>
-        <tbody class="products">
-          <%= f.simple_fields_for :auction_products do |auction_product| %>
-            <%= render 'auction_product_fields', :f => auction_product  %>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="form-actions d-flex justify-content-around">
-        <%= link_to_add_association I18n.translate('auction_new.add_item'), f, :auction_products, class: 'btn btn-add-item',
-        data: { association_insertion_node: '.products', association_insertion_method: :append } %>
-        <%= f.button :submit,  I18n.translate('auction_new.post_list'), class: 'btn btn-post-list', data: { confirm: I18n.translate('auction_new.sure') } %>
-      </div>
-    <% end %>
-  </div>
   <%= render 'shared/control_footer' %>
 </div>
